@@ -1,0 +1,898 @@
+Khaoula Elagouni : 0 : 95600212
+Laurent George : 0 : 42869017
+Ali Bouhlel : 1 : 85034530
+Amandine Rojo : 1 : 85589809
+Khaled Jerbi : 1 : 31208197
+Manel Hentati : 1 : 44524982
+Achraf Ghorbel : 1 : 74534037
+Shengdu Huang : 1 : 31993173
+Chahira Hajlaoui : 1 : 59218894
+Yating Bai : 1 : 76208164
+Ang Li : 1 : 28033542
+Hui Lu : 1 : 45071181
+Chenyang Situ : 1 : 52361062
+Mao Wang : 1 : 48218884
+Lipu Zhong : 1 : 70166781
+Khac Chien Thai : 1 : 61003974
+Ali Rachini : 1 : 18679953
+Dimitri Boudier : 1 : 89258048
+Alexandre Almin : 1 : 63671993
+Pierre-Marie Airiau : 1 : 28917083
+Abderrahmane Amalou : 1 : 43384584
+Etienne Arribe : 1 : 62224317
+Quentin Ainses : 1 : 27452215
+Quentin Augrain : 1 : 23445686
+Jason-Yann Bacon : 1 : 91561911
+Franck Barreau : 1 : 73989694
+Jean-Christophe Bascary : 1 : 29853156
+Cassandre Bauchet : 1 : 97963951
+Aurelien Ayissi Manga : 1 : 61173480
+Alexis Bazin : 1 : 26691208
+Charles Bercher : 1 : 32362016
+Valentin Beaufils : 1 : 56773693
+Romain Berrada : 1 : 59560226
+Matthieu Corentin Bertin : 1 : 17396546
+Henryk Bhatker : 1 : 42363502
+Aurelien Bichon : 1 : 80768423
+Anthony Boissel : 1 : 51921528
+Eric Bonucci : 1 : 16897540
+Clement Bouedo : 1 : 12761597
+Thomas Bourrut-Lacouture : 1 : 11140423
+Maxime Boyadjian : 1 : 83105704
+Yoann Brossais : 1 : 30795140
+Elodie Corbel : 1 : 46211604
+Thibault Caillebotte : 1 : 35466766
+Noe Calvet : 1 : 69014024
+Nicolas Carduner : 1 : 16378385
+Damien Carduner : 1 : 86470741
+Maxime Castelein : 1 : 77693978
+Arnaud Cazenave : 1 : 95636434
+Paul Chaignon : 1 : 50142735
+Eliott Cheveau : 1 : 96611061
+Antoine Clement : 1 : 39021018
+Hugo Contreras : 1 : 12367053
+Xavier Coponet : 1 : 24063277
+Luc Corre : 1 : 52466704
+Hugo Corteville : 1 : 93928964
+Samuel Coz : 1 : 88052971
+Alexis Desjardins : 1 : 72319861
+Damien Cremilleux : 1 : 91892916
+Blandine Dangy : 1 : 49226452
+Ronan Despres : 1 : 89011070
+Eline Fillion : 1 : 24254932
+Martin Flechard : 1 : 96000145
+Brice Delamarche : 1 : 48571296
+Anthony Gainon : 1 : 31651479
+Thierry Gaugry : 1 : 38363648
+Maxime Gautier : 1 : 29339720
+Quentin Gautier : 1 : 73573007
+Juliette Gourlaouen : 1 : 45261188
+Lucile Gerard : 1 : 32101317
+Christian Doubrava : 1 : 74713430
+Angele Geraud : 1 : 28366893
+Vincent Douillet : 1 : 52896457
+Margaux Gesret : 1 : 20925035
+Jean-Christophe Doussal : 1 : 53833660
+Felix Gillet : 1 : 21910481
+Sami El Alami Trebki : 1 : 27303420
+Floriane Emery : 1 : 40304402
+Sylvain Guitton : 1 : 89604459
+Valentin Guyochet : 1 : 22939855
+Elias Hami : 1 : 80447137
+Saad Faiz : 1 : 86215521
+Gwenegan Hudin : 1 : 51960873
+Alexander Joslyn : 1 : 82814190
+Alice Hutin : 1 : 10278798
+Gokce Akoz : 1 : 94427578
+Marwan Johra : 1 : 76743155
+Helai Liu : 1 : 88331770
+Alexandros Kyriakos : 1 : 66747440
+Truong Son Nguyen : 1 : 68636071
+Thuan Quynh Nguyen : 1 : 37558222
+Gwendal Labaigt : 1 : 55758510
+Laurent Mercier : 1 : 82891004
+Alexandre Labbe : 1 : 33558367
+Nam Duong Phung : 1 : 94329806
+Thibault Lalevee : 1 : 14542483
+Pascal Lamouric : 1 : 61922016
+Manon Lavenant : 1 : 23669527
+Gwendal Le Moulec : 1 : 78115490
+Pauline Le Paih : 1 : 97183205
+Sylvain Le Roux : 1 : 45770844
+Maxime Le Ster : 1 : 52828921
+Mylene Lechevallier : 1 : 25550099
+Francois Lelievre : 1 : 88667301
+Johann Lemaire : 1 : 63753956
+Maelenn Lemaitre : 1 : 69383759
+Quentin Lemarie : 1 : 10577782
+Clemence Lepourry : 1 : 81057377
+Thibault Leroux : 1 : 99688162
+Guillaume Le Cann : 1 : 90182242
+Pierre Lucas : 1 : 93997232
+Agathe Martin : 1 : 80135299
+Benoit Martin : 1 : 76397763
+Bruno Matry : 1 : 45958106
+Marine Mauboussin : 1 : 62949490
+Hugo Mear : 1 : 76676561
+Jean-Marie Mellet : 1 : 40385685
+Hugo Mercier : 1 : 39692645
+Thibaud Meric : 1 : 65008331
+Gabrielle Michaud : 1 : 97133125
+Lisa Micouin : 1 : 98328717
+Caroline Mingret : 1 : 92566554
+Anne-Gaelle Morin : 1 : 52891636
+Florian Moulin : 1 : 81219721
+Mattis Naud : 1 : 26124922
+Helene Noesmoen : 1 : 47221443
+Mickael Olivier : 1 : 85762204
+Sandra Pacheco : 1 : 78046938
+Violaine Pagnier : 1 : 60890970
+Tugdual Perrot : 1 : 63877695
+Alexis Pelletier : 1 : 75230143
+David Perrouquet : 1 : 96661814
+Theo Phan Van Song : 1 : 16706617
+Louis Picquet : 1 : 90780243
+Clemence Pichard : 1 : 85329116
+Marine Piou : 1 : 70460574
+Nicolas Plassart : 1 : 60164003
+Arthur Pradeilles : 1 : 85906899
+Amaury Quesnel : 1 : 51517951
+David Ramarosaona : 1 : 59852165
+Benjamin Rapp : 1 : 76089141
+Clarisse Renou : 1 : 45515184
+Kevin Reuze : 1 : 39987464
+Jonas Roblot : 1 : 52486905
+Sebastien Rognon : 1 : 81473290
+Florian Roussard : 1 : 92936955
+Quentin Roussel : 1 : 29163466
+Maxime Rousselot : 1 : 21858975
+Vincent Roquet : 1 : 32629600
+Flore Salanon : 1 : 84171798
+Lucien Sanglier : 1 : 18992101
+Thi Thanh Hoai Nguyen : 1 : 30958317
+Danae Saulnier : 1 : 76738353
+Come Schnebelin : 1 : 61883737
+Franck Sellin : 1 : 12178039
+Arthur Sevestre : 1 : 92863275
+Teddy Simon : 1 : 99105180
+Thomas Temprano : 1 : 87940244
+Maxime Tansorier : 1 : 70910214
+Kevin Theard : 1 : 59996151
+Alexandre Therene : 1 : 51817939
+Martin Theret : 1 : 46140358
+Eden Terraz : 1 : 56657965
+Guillaume Tracol : 1 : 58524557
+Guillaume Trotoux : 1 : 36920601
+Arnaud Trouche : 1 : 41987081
+Simon Vandewalle : 1 : 28985131
+Tony Zaouter : 1 : 87084604
+Clementine Barbon : 1 : 27893980
+Meryem Bengelloun Zahr : 1 : 70503083
+Amine El Hajjami : 1 : 46936769
+Anoumou Fagbegnon : 1 : 93983122
+Vincent Germes : 1 : 16018267
+Virginie Hedreuil : 1 : 76924234
+Coralie Narpon : 1 : 46470027
+Guillaume Martinho : 1 : 87491557
+Camille Pignon : 1 : 69861189
+Aamr-Mohamed Lemghari : 1 : 65633494
+Charles Robin : 1 : 99350533
+Nicolas Pionnier : 1 : 92490790
+Lucie Conan : 1 : 49805292
+Fabien Crambes : 1 : 18342634
+Robin Croisier : 1 : 23449108
+Nina Dansin : 1 : 26543645
+Paul De La Losa : 1 : 70226372
+Marlene Ferret : 1 : 25627147
+Mickael Fleury : 1 : 19406921
+Matthieu Bergere : 1 : 69331553
+Romain Desille : 1 : 13567391
+Thomas Frin : 1 : 80317135
+Xavier Galzin : 1 : 29327704
+Claire Bigot : 1 : 55385331
+Emmanuel Gilles : 1 : 26457493
+Maximilien Eveno : 1 : 75985670
+Gregoire Boizante : 1 : 13909889
+Mael Bourhis : 1 : 53378095
+Andre Chabannes : 1 : 17972752
+Clement Cheriot : 1 : 32895020
+Gaelle Collas : 1 : 40462699
+Olivier Goupilleau : 1 : 35866732
+Steve Greiner : 1 : 93398104
+Antoine Guellier : 1 : 77399468
+Adeline Granet : 1 : 29849855
+Amelie Le Bail : 1 : 99416372
+Mathieu Le Bellec : 1 : 54323703
+Melanie Hambie : 1 : 66319882
+Marie-Anne Le Menn : 1 : 86907930
+Maxime Le Mouellic : 1 : 24184893
+Maxime Kervel : 1 : 31953376
+Emilie Jehanno : 1 : 86258463
+Maxime Lemelle : 1 : 16675683
+Anais Gandy : 1 : 71758669
+Clement Grellier : 1 : 94601098
+Nicolas Quere : 1 : 30124791
+Joris Guyonvarch : 1 : 88302315
+Margot Racine : 1 : 64827470
+Anis Tamsouri : 1 : 45751939
+Philippe Lim : 1 : 97709236
+Damien Leboeuf : 1 : 34159024
+Lionel Tanguy : 1 : 49319330
+Julie Lebreton : 1 : 78026372
+Jerome Ricoeur : 1 : 53486728
+Arthur Temple : 1 : 94704662
+Yann Lefeuvre : 1 : 94483866
+Adrien Richard : 1 : 29472398
+Caroline Thoux : 1 : 98614551
+Thomas Limouzin : 1 : 47861961
+Quentin Mahe : 1 : 37445150
+Emilien Ripoche : 1 : 31509572
+Yannis Toubal : 1 : 78324660
+Pauline Marais : 1 : 63311883
+Clement Martin : 1 : 24907677
+Lucas Royer : 1 : 55724129
+Sebastien Tranchant : 1 : 83161738
+Guillaume Mastromarino : 1 : 24324049
+Fabien Roze : 1 : 10047832
+Anthony Vaidie : 1 : 49481621
+Tayeb Mejbar : 1 : 11231979
+Olivia Rumiac : 1 : 24232726
+Florent Violleau : 1 : 71434998
+Tarik Mnaoui : 1 : 87490442
+Antoine Monnier : 1 : 30908409
+Myckael Mouchel : 1 : 43193667
+Samuel Ngahane : 1 : 82091541
+Antoine Savary : 1 : 51033201
+Julien Petit : 1 : 31495983
+Bastien Piquereau : 1 : 46919012
+Maxime Prieur : 1 : 86785140
+Paola Szkudlarek : 1 : 29205220
+Olivier Nignon : 1 : 71078036
+Hanane Boutejdir : 1 : 36104471
+Samuel Babin : 1 : 97231592
+Arnaud Pauliat : 1 : 24564764
+Arthur Le Chenadec : 1 : 30809133
+Maxime Pigeard : 0 : 91715458
+Marc Faucheux : 1 : 44037163
+Florian Lebeau : 1 : 29423685
+Adam Meskini : 1 : 39577419
+Dan Hotoleanu : 1 : 71482314
+Flore Diallo : 1 : 50933258
+Quentin Petit : 1 : 17902080
+Paul-Mehdy M'Rabet : 1 : 34794198
+Jules Jeanroy : 0 : 65840935
+Jeremy Belchior : 1 : 63626209
+Cedric Robert : 1 : 17955936
+Hogoud Dago : 1 : 80164984
+Mehdi Feki : 1 : 63674042
+Matthieu Guetta : 1 : 57437558
+Cedric Andreolli : 1 : 81396963
+Thomas Besnard : 1 : 77906768
+Ali Rachid Dekkiche : 1 : 28872556
+Sidi Mohamed Sari-Ali : 1 : 68887406
+Linning Peng : 1 : 98815178
+Hongquan Wang : 1 : 62066224
+Xiaohui Yi : 1 : 50978948
+Jinglin Zhang : 1 : 49848379
+Shunying Zhang : 1 : 83562207
+Yu Zhao : 1 : 87897960
+Wenbin Zou : 1 : 36633519
+Nawin Kim : 1 : 12767427
+Areej Merhi : 1 : 58975996
+Rozenn Bouville Berthelot : 1 : 62737990
+Duc Vinh Nguyen : 1 : 99999020
+Thanh Tra Nguyen : 1 : 73540761
+Mohamad Maaz : 1 : 83547124
+Tony Makdissi : 0 : 91714478
+Rafiq Sekkal : 1 : 17577924
+Sofiane Chabane : 1 : 12970809
+Salma Halelfadl : 1 : 31291898
+Baghdad Krour : 1 : 79060239
+Zaher Sayegh : 1 : 53904067
+Georges Da Silva : 1 : 39193978
+Son Tung Pham : 1 : 13854437
+Mario Guillo : 1 : 19745003
+Pierre-Henri Conze : 1 : 92820188
+Simon Mener : 1 : 21810374
+Mohamed El Mehdi Aichouch : 1 : 89909987
+Andres Saraos Luna : 1 : 56494230
+Mokrane Ammouri : 1 : 69247932
+Thanh Tung Le : 1 : 71306951
+Cong Hanh Pham : 1 : 34400999
+Alice Youssef : 1 : 88120489
+Omar Merrad : 1 : 40194358
+Matthieu Guillet : 1 : 33216177
+Pengsea Ly : 1 : 50186714
+Weizhi Lu : 1 : 81173307
+Marie Loyer : 1 : 73064557
+Miloud Chirk El-Mezouar : 1 : 33748922
+Quang Huy Dang : 1 : 69071267
+Trung Duc Tran : 1 : 99698076
+Toni Bars : 1 : 36516350
+Thomas Peyret : 1 : 28047264
+Nhan Hoa Nguyen : 1 : 62436067
+Lama Rahhal : 1 : 36515370
+Yuanyuan Dong : 1 : 91588025
+Ratna Winduratna : 1 : 45983191
+Romain Heloir : 1 : 28229849
+Redouane Ghoubali : 1 : 99165950
+Han Yan : 1 : 48954001
+Amparo Gonzalez Gimenez : 1 : 49521748
+Said Louizi : 1 : 78226189
+Van-Trinh Hoang : 1 : 92858069
+Fatima Laaskri : 1 : 78715726
+Soukaina Benamar : 1 : 82080627
+Mario Cano Vaquero : 1 : 12603072
+Carlos Guijarro Benito : 1 : 71535915
+Jerome Ardouin : 1 : 93891001
+Dame Keinde : 1 : 92513060
+Xi Chen : 1 : 28030146
+Runzhong Cui : 1 : 63138934
+Weizhe Feng : 1 : 63820012
+Jing Jin : 1 : 52431145
+Zhonglin Li : 1 : 51259423
+Lizhou Liu : 1 : 94014371
+Feng Tang : 1 : 75647323
+Xucheng Tang : 1 : 91446138
+Weitian Zhang : 1 : 75187678
+Yuchao Zhou : 1 : 48711880
+Imen Ben Trad : 1 : 25195060
+Ji Liu : 1 : 44258945
+Sieuwerd Teunis Op'T Land : 1 : 48409957
+Mohamad Idriss : 1 : 51711410
+Antoine Hamonic : 1 : 62306210
+Brice Moreau : 1 : 10846024
+Khouloud Issiali : 1 : 78226781
+Damien Durand : 1 : 53894235
+Imane Rayk : 1 : 46829215
+Manuel Loubatie : 1 : 96456630
+Florent Sonnery : 1 : 53060185
+Jerome Adoue : 1 : 85783217
+Obai Ali : 1 : 45978378
+Denis Allard : 1 : 31286375
+Gary Andrieux : 1 : 78641286
+Kerline Bebin : 1 : 24694105
+Pierre-Yves Belle : 1 : 13367002
+Florian Amiot : 1 : 81244359
+Thomas Beltoise : 1 : 86230020
+Camille Berbineau : 1 : 97258004
+Vianney Anis : 1 : 73757419
+Arthur Bernadac : 1 : 14260166
+Loic Aucouturier : 1 : 60396938
+Baptiste Audat : 1 : 37577432
+Quentin Benadda : 1 : 56691312
+Alexandre Audinot : 1 : 11656362
+Nacer Berrada : 1 : 31591803
+Josselin Berthiau-Tollemer : 1 : 32338636
+Nassim Bahraoui : 1 : 93102500
+Remi Bertho : 1 : 96779481
+Matthieu Bertin : 1 : 71050516
+Baptiste Bignon : 1 : 18297561
+Aline Baudry : 1 : 41038427
+Alexandre Barthelemy : 1 : 19460473
+Adrien Beurel : 1 : 60008971
+Simon Bigot : 1 : 93344637
+Guillaume Blin : 1 : 20306498
+Antoine Chenon : 1 : 38235753
+Martin Chouteau : 1 : 47238873
+Jean-Baptiste Collus : 1 : 57135714
+Ludovic Bondon : 1 : 34692383
+Romain Colombat : 1 : 90299059
+Francois Boschet : 1 : 42918931
+Alexis Bouin : 0 : 70670762
+Leny Convelbo : 1 : 21585435
+Antoine Bousseau : 1 : 21560218
+Loik Coriton : 1 : 85364868
+Vincent Corlay : 1 : 24952438
+Salim Bouzoubaa : 1 : 92804577
+Maxime Cadoret : 1 : 71594888
+William Dazi : 1 : 22210442
+Antoine Calleau : 1 : 66561996
+Jade Davy : 0 : 75855055
+Simon Carro : 1 : 72607381
+Nicolas Dankar : 1 : 94139428
+Thomas Danet : 1 : 32546368
+Frank Chassing : 1 : 74263744
+Chloe Chauvet : 1 : 25731232
+Louise De Bonet D'Oleon Partouneaux : 1 : 54885004
+Martin Descours : 1 : 67366245
+Benoit Desille : 1 : 22510714
+Adrien De La Flore : 1 : 25935521
+Yoann Devaud : 1 : 75663806
+Cyrille Delabre : 1 : 53549142
+Nicolas Deverly : 1 : 35395995
+Pauline Deville : 1 : 35672778
+Adrien Duguet : 1 : 46893780
+Thomas Dolou : 1 : 45702493
+Aurelie Dorle : 1 : 63908531
+Victor Dupont : 1 : 84132653
+Antoine Duvernay : 1 : 92838208
+Gustave Duchet-Suchaux : 1 : 88600915
+Valentin Esmieu : 1 : 74431713
+Chloe Fauvel : 1 : 35757139
+Ketty Favre : 1 : 59271677
+Marc Feltens : 1 : 86017148
+Raoul Ferey : 1 : 47317357
+Paul Ferrand : 1 : 44636546
+Clement Ferrec : 1 : 10969586
+Mathieu Ferru : 1 : 40121935
+Olivier Frisch : 1 : 16231434
+Marie Gaboriaud : 1 : 23180029
+Louis Gachenot : 1 : 96683931
+Mathieu Ganot : 1 : 82086490
+Alexis Gauquelin : 1 : 85787411
+Victor Gayoux : 1 : 90823360
+Jean-Baptiste Genaud : 1 : 14632859
+Bastien Bouvet : 1 : 60051155
+Adrien Gendre : 1 : 16554593
+Jeanne Guionnet : 1 : 59517864
+Tcheyne Gerard : 1 : 27417400
+Etienne Gerat : 1 : 29065307
+Vincent Geslin : 1 : 75453385
+Nicolas Gilbert : 1 : 93081207
+Hyuk-Chan Kwon : 1 : 72614449
+Valentin Gillot : 1 : 10849381
+Margaux Labbe : 1 : 28753986
+Gaelle Girard : 1 : 19508230
+Francois Girault : 1 : 46551875
+Yoann Glais : 1 : 82662517
+Pierre Gogendeau : 1 : 93640884
+Benjamin Gomez : 1 : 39390083
+Astrid Lafontaine : 1 : 71263433
+Romain Gontier : 1 : 68072597
+Laetitia Lagueux : 1 : 65147223
+Tristan Goraguer : 1 : 30535111
+Mohammed Guitouni : 1 : 54089746
+Simon Gouellain : 1 : 12464581
+Pierre Issele : 1 : 65171657
+Simon Gouraud : 1 : 55059333
+Leo Jacoboni : 1 : 42586516
+Fabien Grillas : 1 : 71403092
+Paul Jadaud : 1 : 68239362
+Simon Guiheneuf : 1 : 39270448
+Elie Janin : 1 : 53489583
+Laura Guillemot : 1 : 54026773
+Cedric Jezequel : 1 : 30093809
+Clemence Guillory : 1 : 58122442
+Nicolas Kremer : 1 : 14077929
+Florian Guimond : 1 : 36648402
+Tristan Halet : 1 : 17640306
+Gregoire Halle : 1 : 31495330
+Vithouna Hanvichid : 1 : 55713710
+Gwendal Henry : 1 : 83093692
+Thomas Houret : 1 : 24576537
+Duy Anh Mai : 1 : 28328160
+Maick Migeon--Le Ligne : 1 : 83943073
+Mathilde Laine : 1 : 43330523
+Merwan Mokhtari : 1 : 37836390
+Gaelle Molle : 1 : 30494948
+Pierre Lamy : 1 : 25993041
+Francois Mondain : 1 : 31477274
+Clarisse Laouenan : 1 : 59885032
+Cao Tu Hoang : 1 : 87256475
+Francois Lardeux : 1 : 89549872
+Guillaume Larnaudie De Ferrand Puginier : 1 : 25032255
+Mateusz Szczur : 1 : 17791586
+Allan Mondin : 1 : 43639618
+Julien Lassimonne : 1 : 27496837
+Alexis Laugerette : 1 : 72963243
+Lena Le Bars : 1 : 88698951
+Clement Soulier : 1 : 60083353
+Tristan Le Berre : 1 : 44366335
+Doan Nhat Nguyen : 1 : 56938313
+Mathieu Spegagne : 1 : 89353801
+Pierre Le Bihan : 1 : 87855918
+Martin Le Bot : 1 : 10965087
+Khac Huy Nguyen : 1 : 19447610
+Fanny Nouvellon : 1 : 45978361
+Bastien Le Falher : 1 : 15043016
+Victor Ouali : 1 : 46096013
+Lucas Le Garrec : 1 : 53618667
+Morvan Panelay : 1 : 36538347
+Maxime Le Glatin : 1 : 91809723
+Simon Parenthoine : 1 : 36712360
+Violette Le Goff : 1 : 51114884
+Thomas Le Mau : 1 : 20137883
+Sarah Pasquier : 1 : 20655433
+Nicolas Oliver : 1 : 84445408
+Valentin Pestel : 1 : 47974273
+Emmanuel Le Roux : 1 : 41150382
+Victor Perves : 1 : 10438450
+Maite Petit : 1 : 69451548
+Lucas Peyresoubes : 1 : 91035415
+Alice Le Saux : 1 : 87694925
+Nicolas Le Tiran : 1 : 59001420
+Khanh Nguyen : 1 : 16067671
+Theo Leclercq : 1 : 95486511
+Gurvan Lecuyer : 1 : 92641038
+Gwenole Pichon : 1 : 33564508
+Noemi Ledoux : 1 : 68449755
+Leo Pompei : 1 : 81339990
+Emmanuel Lilette : 1 : 83647861
+Jordan Loiseau : 1 : 12816091
+Remi Poncety : 1 : 38278304
+Alexis Porquet : 1 : 73001663
+Patricia Loubet : 1 : 90672010
+Gabriel Prevosto : 1 : 39243391
+Arnaud Louya : 1 : 82449274
+Louis Prunaux : 1 : 36650371
+Florent Mallard : 1 : 44286408
+Clement Puiroux : 1 : 28545287
+Aymen Ragoubi : 1 : 80269039
+Thibault Rapin : 1 : 70824755
+Elouan Martin : 1 : 20355011
+Pol-Ewen Rault : 1 : 16981399
+Lucie Richard--Allouard : 1 : 21939640
+Antoine Rioual : 1 : 30492895
+Thomas Rodet : 1 : 27636833
+Pauline Rouille : 1 : 96385048
+Cecile Lemaire : 1 : 68467168
+Geoffrey Roy : 1 : 58787216
+Florian Lemarchand : 1 : 96823499
+Guillaume Roy : 1 : 37918717
+Romain Saillant : 1 : 49822631
+Oumaima Sadoq : 1 : 84518424
+Ronan Salaun : 1 : 86920138
+Quentin Samaran : 1 : 55890303
+Julia Saussereau : 1 : 80004935
+Valentin Sauvagere : 1 : 79561176
+Dan Seeruttun--Marie : 1 : 79454811
+Blandine Seznec : 1 : 48454691
+Melissa Simon : 1 : 60901167
+Lambert Sirven : 1 : 63102673
+Fabien Siry : 1 : 51270782
+Oana-Alina Suciu : 1 : 89179471
+Morgan Tastayre : 0 : 36104336
+Clement Tardif : 0 : 41942792
+Anastasia Terres : 0 : 28422863
+Maxime Thebault : 0 : 18553611
+Michael Theillac : 0 : 68593164
+Francois-Louis Toulemonde : 0 : 62709271
+Adjaratou Toure : 0 : 37098899
+Bensoumeitte Toybou : 0 : 48862204
+Vincent Turbin : 0 : 33534027
+Marine Vallet : 0 : 47453911
+Hoel Vasseur : 0 : 55843604
+Vincent Werner : 0 : 45473668
+Vincent Lemordant : 0 : 67946806
+Maud Leray : 0 : 73480437
+Jeremy Ligaon : 0 : 41858717
+Thomas Moreau : 0 : 36413975
+Nelly Moulin : 0 : 32267654
+Paul Mulot : 0 : 38682216
+Lucie Naert : 0 : 64332692
+Florentin Neau : 0 : 72090286
+Maena Rafalovitch : 0 : 23200640
+Ouleymatou Ngom : 0 : 51252830
+Jerome Nicolas : 0 : 27980589
+Corentin Nicole : 0 : 93205576
+Clovis Nicolas : 0 : 30814007
+Maxime Le Coroller : 0 : 97435400
+Omar Terrab : 0 : 41660268
+Mohamed Taha Oualif : 0 : 81715174
+Mahdi Hentati : 0 : 60538074
+Mathieu Le Guern : 0 : 82931050
+Alexandre Gaultier : 0 : 70894645
+Jeremy Lelay : 0 : 86642411
+Thi Hai Duong Nguyen : 0 : 24873843
+Damien Guillou : 0 : 89317508
+Alexis Levigneur : 0 : 95196022
+Simon Guillier : 0 : 83467008
+Lise Gaillard : 0 : 52026780
+Vincent Durrmann : 0 : 32294922
+Fabien Dubar : 0 : 32329212
+Papa Alioune Diop : 0 : 75560808
+Arthur Clement : 0 : 69748833
+Alexandre Cailler : 0 : 78172816
+Liantsoa Rasata-Manantena : 0 : 21034476
+Paul Sidaoui : 0 : 37695639
+Alexis Simon : 0 : 51653254
+Antonin Soulard : 0 : 52893193
+Nicolas Trehin : 0 : 64109614
+Ziad Zgheib : 0 : 73920909
+Oswald Besch : 0 : 81575410
+Mathieu Corruble : 0 : 28442307
+Timothee Galisson : 0 : 46011195
+Vincent Richard : 0 : 94776051
+Ouadie Boussaid : 0 : 69695137
+Lucien Piton : 0 : 63991785
+Chloe Burlot : 0 : 87981627
+Helene Denis : 0 : 90509145
+Jonas Fauvel : 0 : 61427186
+Yerima Adji Maliki : 0 : 29641895
+Andrew Miller : 0 : 72224320
+Anthony Polnecq : 0 : 21965260
+Vinh Phuc Tran : 0 : 12572946
+Thai Binh Nguyen : 0 : 43118966
+Anne Ponard : 0 : 98607671
+Quang Vinh Nguyen : 0 : 27446790
+Dinh Luong Nguyen : 0 : 32436475
+Felicie Quartier : 0 : 93803694
+Maelan Quesne : 0 : 10913798
+Alban Raboin : 0 : 74463256
+Yacin Rekik : 0 : 26098616
+Mathieu Rideau : 0 : 33243011
+Clement Riess : 0 : 50024064
+Antoine Rose : 0 : 85847449
+Thibaut Rumen : 0 : 11415828
+Quentin Hinsinger : 0 : 61058541
+Florian Savin : 0 : 23543089
+Florian Kermorvant : 0 : 53069083
+Aurelien Sieurin : 0 : 13951735
+Xavier Lami : 0 : 77652703
+Jonathan Langlais : 0 : 26989992
+Xavier Theillier : 0 : 85527145
+Frederic Turmel : 0 : 96095010
+Florentin Vaille : 0 : 63001187
+Florian Vrignaud : 0 : 80303196
+Stephen Le Gall : 0 : 65790148
+Thibaut Gascuel : 0 : 86205167
+Paul Bivic : 0 : 74030320
+Laura Louboutin : 0 : 82128947
+Leo Lozach : 0 : 53013387
+Vincent Montecot : 0 : 14715334
+Thomas Munoz : 0 : 20924186
+Agathe Neviere : 0 : 99005518
+Louis Ninkovic : 0 : 59787920
+Emma Pasquereau : 0 : 47745837
+Guillaume Pirouelle : 0 : 89272838
+Antonin Poirier : 0 : 96655607
+Alexis Tasse : 0 : 46988885
+Alexis Verdier : 0 : 94593074
+Alexis Volant : 0 : 18219365
+Claire Quere : 0 : 63939387
+Lucas Royer : 0 : 17281448
+Vivien Marsteau : 0 : 65277841
+Vivien Menard : 0 : 53137819
+Pierre Miloux : 0 : 39117135
+Imane Taoussi : 0 : 65864970
+Olivier Tesse : 1 : 75012779
+Katia Tighilt : 1 : 33833549
+Pierre Touron : 1 : 74146169
+Thomas Wisniewski : 1 : 39323683
+Zineb Jennane : 1 : 79577112
+Louis Rotrou : 1 : 67659152
+Maria Brodovoi : 1 : 93259616
+Clement Miqueu Lahorgue : 1 : 75251443
+Quentin Parthenay : 1 : 58317000
+Romain Pavec : 1 : 65492875
+Maxime Peralta : 1 : 43026658
+Coline Perdrier : 1 : 20150035
+Thibault Perel : 1 : 85948881
+Eugenie Pleuchot : 1 : 25155606
+Gregory Martin : 1 : 63163422
+Jean Mosset : 1 : 90664215
+Maxime Munos : 1 : 36079793
+Pierre-Antoine Pelerin : 1 : 62168941
+Mael Petit : 1 : 50452135
+Margaux Tripoteau : 1 : 73825630
+Jeremy Tual : 1 : 51441779
+Deborah Machado Ayres : 1 : 47107743
+Andrei Cumpanici : 1 : 20814516
+Clement Lucas : 1 : 46034854
+Arnaud Martin : 1 : 55327109
+Anthony Peu : 1 : 74753903
+Arthur Pham : 1 : 53316302
+Remy Pizzinato : 1 : 20604951
+Louis Tourneur : 1 : 27891723
+Maximilien Richer : 1 : 82433437
+Gwendal Robic : 1 : 76469921
+Antoine Dehut : 1 : 92904503
+Baptiste Arfi : 1 : 16266987
+Milad Bazzi : 1 : 50616091
+Saifedine Ben Malek : 1 : 32228186
+Louis-Paul Cordier : 1 : 85844099
+Lauriane Holy : 1 : 18275243
+Fanny Pernelle : 1 : 25487803
+Valentin Sipan : 1 : 61095543
+Pierre Stenvot : 1 : 66592243
+Hugo Bocquet : 1 : 80980678
+Maxime Cariou : 1 : 94122202
+Pierre Corbel : 1 : 76742279
+Yasin Gundogdu : 1 : 66929560
+Quentin Leveque : 1 : 19277809
+Alexandre Mercat : 1 : 39905701
+Jean-Charles Mulon : 1 : 57593775
+Anais Lanconner : 1 : 45357602
+Baptiste Bercher : 1 : 92074643
+Aurelien Gaget : 1 : 98045911
+Alexandre Guillemine : 1 : 19183232
+Clement Massard : 1 : 43516422
+Romain Riviere : 1 : 45153655
+Jonathan Robinault : 1 : 29997748
+Valentin Rondel : 1 : 79551277
+Thomas Simon : 1 : 90480765
+Meryem El Younssi Jebli : 1 : 94751652
+Ronan Foubert : 1 : 32867579
+Valentin Crochard : 1 : 11085716
+Quentin Debieu : 1 : 22643375
+Valentin Houchouas : 1 : 15301017
+Delphine Millet : 1 : 77555637
+Ndeye Ndiaye : 1 : 15547878
+Justin Petiot : 1 : 21568004
+Pierre Baron : 1 : 28171729
+Pierre-Olivier Bouteau : 1 : 37776065
+Hugo De Luca : 1 : 97412104
+Antoine Lejeune : 1 : 36446972
+Jennifer Greer : 1 : 53263868
+Rachel Ollivier : 1 : 58507647
+Matthieu Saint-Ellier : 1 : 93039216
+Alix Steiger : 1 : 34244547
+Xavier Affagard : 1 : 52629850
+Clement Bardou : 1 : 69781495
+Fabien Fontaine : 1 : 91174107
+Simon Irand : 1 : 61907659
+Benoit Mollard : 0 : 99687197
+Aymeric Pocreau : 1 : 48767883
+Thomas Deffains : 1 : 97265261
+Valentin Duguest : 1 : 91761840
+Maria Haddad : 1 : 46813795
+Florian Jean : 1 : 16448494
+Charlotte Raphanel : 1 : 35278263
+Myriam Du Fayet De La Tour : 1 : 81967451
+Xavier Gallais : 1 : 36446242
+Victorien Lorcy : 1 : 14829540
+Christophe Hallet : 1 : 72448216
+Dounia Kadimi Skalli : 1 : 31197895
+Julian Poidevin : 1 : 37697120
+Quentin Sechet : 1 : 73533932
+Remi Vicente : 1 : 43841271
+Xuan Tran : 1 : 42998138
+Siham Chaabt : 1 : 51089570
+Ibrahim Salloum : 1 : 49389149
+Basile Remigereau : 1 : 54566143
+Juan Ronell Abad Estevez : 1 : 69261299
+Arnaud Perherin : 1 : 77165214
+Benjamin Soudry : 1 : 51978247
+Damien Tanguy : 1 : 95708272
+Duy Khanh Trinh : 1 : 30429083
+Ngoc Trung Bui : 1 : 10485895
+Benjamin Leclerc : 1 : 88747488
+Nicolas Charpentier : 1 : 54673630
+Nirenjanee Seenevassenpillay : 1 : 53115745
+Timothe Viot : 1 : 58528984
+Lilian Janvier : 1 : 45847738
+Komi Edem Amouzou : 1 : 15023405
+Morgan Lacour : 1 : 58216181
+Mohamed Nidabdella : 1 : 84615622
+Achille Abada : 1 : 12288666
+Benoit Mary : 1 : 49978021
+Nicolas Piegay : 0 : 31429417
+Adrien Brunelat : 1 : 18737160
+Tianyu Zhang : 1 : 75256284
+Jeremy Steimle : 1 : 13396869
+David Briand : 1 : 45183403
+Maxime Lorant : 1 : 80085825
+Ludovic Joder : 1 : 75845085
+Alexandre David : 1 : 66381299
+Benjamin Bouguet : 1 : 17782945
+Alexandra Da Silva : 1 : 49379018
+Tanguy Brelivet : 1 : 10222570
+Julie Coquiere : 1 : 50781083
+Fatma Gueye : 1 : 90468589
+Hani Hajji : 1 : 49611719
+Tien-Dat Nguyen : 1 : 95347227
+Guillaume Stanguennec : 1 : 59729889
+Pierre Gilles : 1 : 26776934
+Thibaud Moyrand : 1 : 47325474
+Jade Issa : 1 : 55438161
+Adrien Souvent : 1 : 47206018
+Feng Wen : 1 : 47811370
+Cyrille Samson : 1 : 44185649
+Sara El Alaoui : 1 : 91879648
+Yann Dubois : 1 : 90927116
+Estele Keravec : 1 : 92714633
+Florian Telmont : 1 : 37727387
+Cecile Peyret : 1 : 95950521
+Samuel Griffon-Guillard : 1 : 50930815
+Foo Leong : 1 : 22343009
+Charly Houee : 1 : 98239188
+Jeremy Renouard : 1 : 90908837
+Nicolas Masseron : 1 : 43772427
+Ambre Margotin : 1 : 16976349
+Sylvain Nizan : 0 : 66165121
+Vincent Traisnel : 1 : 47169297
+Karima Ait Ihya : 1 : 52159752
+Boris Labbe : 1 : 46250947
+Clement Leboullenger : 1 : 23014382
+Alexandre Leonardi : 1 : 18541052
+Clement Derre : 1 : 54033893
+Jordan Arnaud : 1 : 62393401
+Yunxiao Gong : 1 : 18763622
+Pedro Joaquin Mandujano Alonso : 1 : 94814977
+Juan Francisco Zamora-Garcia : 1 : 52861991
+Antoine Le Calvez : 1 : 58375342
+Julien Hascoet : 1 : 90162204
+Denys Merlet : 1 : 12591880
+Antoine Guillet : 1 : 75152276
+Martin Chertier : 0 : 37487679
+Thibaud Chatillon : 1 : 58030041
+Amelie Autret : 1 : 22358294
+Eric Chauty : 1 : 75299049
+Andraina Delmas : 1 : 92215691
+Alexis Boyer : 1 : 14237943
+Andrea Garcia : 1 : 66226165
+Dame Thiam : 0 : 84930325
+Lucas Rual : 1 : 41965331
+Khalied Ewhida : 1 : 62176687
+Jimmy Tran : 1 : 35861140
+Theophile Boue : 1 : 54308340
+Driss Rais : 1 : 60415875
+Mouhamadou Ba : 1 : 26769977
+Fethallah Taleb : 1 : 88080768
+Chrystelle Neaime : 1 : 67392224
+Sandrino Bearivo : 1 : 82935099
+Thi Thuong Huyen Nguyen : 1 : 35250065
+Van Toan Tran : 1 : 19551977
+Maha Oulmakki : 1 : 29186047
+Armada Sukri : 1 : 48264448
+Khankeo Phathong : 1 : 28093029
+Chengling Yao : 1 : 73219940
+Amaia Fortes Montilla : 1 : 10657850
+Ruiyi Yang : 1 : 36856652
+Xin Li : 1 : 68034917
+Hiba Bawab : 1 : 53519841
+Min Gong : 1 : 85231994
+Zijun Jin : 1 : 58197122
+Yue Wu : 1 : 56111721
+Liang Shui : 1 : 60384271
+Zixin Song : 1 : 85684801
+Muhan Yu : 1 : 14141763
+Zhenhao Xu : 1 : 72742565
+Shanshan Xu : 1 : 60983850
+Qiao Yu Su : 1 : 96357454
+Yufeng Yang : 1 : 76980509
+Erika Ayumi Ito Rivero : 1 : 27210016
+Xuanran Liu : 1 : 81287779
+Ziang Chen : 1 : 18945840
+Mariem Abid : 1 : 79386704
+Abhishek Singh : 0 : 17148920
+Bekzad Khankeldiyev : 0 : 63254181
+Luan Mayk Torres Costas : 0 : 39802579
+Macisse Diop : 0 : 33918897
+Azary Abboud : 0 : 51334949
+Aissata Chanoussi Moustapha : 0 : 97194804
+Trung Dung Ho : 0 : 16853997
+Hoang Tuan Luu : 0 : 76585015
+Dong Tran : 0 : 16746782
+Manh Hung Nguyen : 0 : 36040044
+Dang Kha Nguyen : 0 : 24849463
+Minh Duc Ngo : 0 : 34839812
+Quang Tuan Ngo : 0 : 99259984
+Tuan Trung Nguyen : 0 : 25507313
+Cong Doan Nguyen : 0 : 61696464
+Bui Quoc Huy Ly : 0 : 67294902
+Tuan Toan Nguyen : 0 : 69027155
+Huu An Nguyen : 0 : 46928458
+Nehmat Abouzahab : 0 : 25492024
+Supreet Kaur Sidhu : 0 : 25138876
+Ishani Khanna : 0 : 97312729
+Utku Takmaz : 0 : 11176825
+Esau Islas Gomez : 0 : 29280639
+Xuan Nguyen : 0 : 70055295
+Neha Rohilla : 0 : 62160676
+Concepcion Rodriguez Benavides : 0 : 25638094
+Viet Dung Vu : 0 : 47035805
+Tuan Anh Nguyen : 0 : 79370693
+Luan Mayk Torres Costa : 0 : 96925873
+Auxance Marchand : 0 : 55981645
+Yvonnig Jan : 0 : 58757397
+Manutea Huang : 0 : 14074794
+Thai Son Nguyen : 0 : 19235827
+Song Hai Nguyen : 0 : 88559977
+Ethel Marquer : 0 : 37993691
+Lenaic Tran : 0 : 60570776
+Orsolya Keri : 0 : 85754782
+Nguyen Phan : 0 : 44847689
+Thiago Carneiro Pinto : 0 : 37155792
+Tri Nam Nguyen : 0 : 92501565
+Huy Hoang Le : 0 : 70887733
+Thanh Trung Nguyen : 0 : 52005255
+Thanh Long Le : 0 : 27341377
+Yan Yan : 0 : 70147718
+Guoqiang Tang : 0 : 67512569
+Kianoosh Samimi : 0 : 79037842
+Tian Xia : 0 : 37442620
+Jia Fu : 0 : 36539725
+Yanping Wang : 0 : 25966300
+Baba Ndao : 0 : 52934644
