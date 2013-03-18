@@ -4,7 +4,7 @@
 	
 	if(isset($_POST['name']) && isset($_POST['login']) && isset($_POST['room']) && isset($_POST['year']) && isset($_POST['department']) && isset($_POST['gender'])) {
 		require('secret/sqlite.php');
-		connect_db('secret/insannu.db');
+		$db = connect_db('secret/insannu.db');
 		
 		// Creates the SQL request:
 		$sql_query = '';
@@ -82,7 +82,7 @@
 		// Executes the request on the database:
 		if($sql_query!='') {
 			try {
-				$query = $GLOBALS['bdd']->prepare("SELECT * FROM students WHERE ".$sql_query." ORDER BY ".$order_by."last_name, first_name, student_id;");    
+				$query = $db->prepare("SELECT * FROM students WHERE ".$sql_query." ORDER BY ".$order_by."last_name, first_name, student_id;");    
 				$query->execute($params);
 			} catch (Exception $e) {
 				exit('Error : '.$e->getMessage());

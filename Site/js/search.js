@@ -106,11 +106,12 @@ function loadJSONResults(oData) {
 				innerHTML += department;
 			}
 			innerHTML += '<br/><input type="hidden" value="'+mail+'"/><br/>';
-			li.innerHTML = innerHTML;
+			li.innerHTML = '<!--'+innerHTML+'-->';
 		}
 		
 		// Adds the student to the ul for immediate display or to the stack for futur display:
 		if(i<18) {
+			li.innerHTML = li.innerHTML.substring(4, li.innerHTML.length-3);
 			ul.appendChild(li);
 		} else {
 			stack.appendChild(li);
@@ -140,7 +141,7 @@ function affichXMLResults() {
 		var ul = document.getElementById('results');
 		var loadedResults = '';
 		for(var i=0 ; i<18 ; i++) {
-			loadedResults += '<li id="'+stack_li[0].getAttribute('id')+'">'+stack_li[0].innerHTML+'</li>';
+			loadedResults += '<li id="'+stack_li[0].getAttribute('id')+'">'+stack_li[0].innerHTML.substring(4, stack_li[0].innerHTML.length-3)+'</li>';
 			stack.removeChild(stack_li[0]);
 			if(stack_li.length==0) {
 				break;

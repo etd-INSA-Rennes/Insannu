@@ -3,6 +3,6 @@
 
 **************/
 
-$GLOBALS['statistics'] = true;
+$GLOBALS['statistics'] = false;
 
 ?>

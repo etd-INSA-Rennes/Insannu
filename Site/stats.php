@@ -2,7 +2,7 @@
 	
 	require("shared/connect.php");
 	require('secret/sqlite.php');
-	connect_db('secret/insannu.db');
+	$db = connect_db('secret/insannu.db');
 	
 	$sql_querys = array(/*"room <> 'Externe'", */"year = 1", "year = 2", "year = 3", "year = 4", "year = 5", "department = 'Doctorant'", "department = 'Master'");
 	$lignes = array(/*"&Eacute;tudiants en résidence", */"Premières année", "Deuxièmes année", "Troisièmes année", "Quatrièmes année", "Cinquièmes année", "Doctorants", "Masters");
@@ -10,7 +10,7 @@
 	
 	for($i=0 ; $i<count($sql_querys) ; $i++) {
 		try {
-			$query = $GLOBALS['bdd']->prepare("SELECT COUNT(*) FROM students WHERE ".$sql_querys[$i]." GROUP BY gender ORDER BY gender DESC");
+			$query = $db->prepare("SELECT COUNT(*) FROM students WHERE ".$sql_querys[$i]." GROUP BY gender ORDER BY gender DESC");
 			$query->execute();
 		} catch(Exception $e) {
 			exit('Error : '.$e->getMessage());
