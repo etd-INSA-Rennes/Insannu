@@ -4,12 +4,12 @@ function recherche() {
 	/**
 	 * Requests the server 0.4sec after the last input.
 	 */
-	var previous_search = document.getElementById('previous_search');
-	var search = document.getElementById('search');
-	if(previous_search.value!=search.value) {
+	var previous_search = $('#previous_search');
+	var search = $('#search');
+	if(previous_search.val()!=search.val()) {
 		window.clearTimeout(t);
 		t = window.setTimeout(askServeur, 400);
-		previous_search.value = search.value;
+		previous_search.val(search.val());
 	}
 }
 
@@ -17,8 +17,8 @@ function askServeur() {
 	/**
 	 * Requests the PHP script search.php to obtain the list of results.
 	 */
-	var search = document.getElementById('search').value;
-	var ul = document.getElementById('results');
+	var search = $('#search').val();
+	var ul = $('#results');
 	
 	switch(search) {
 		case '*':
@@ -29,27 +29,22 @@ function askServeur() {
 		break;
 	}
 	
-	ul.innerHTML = '';
+	ul.html('');
 	clearMaillist();
 	deleteButtonsMaillists();
 	
 	if(search.length>1) {
-		var xhr = getXMLHttpRequest();
-		
-		// Research:
-		xhr.onreadystatechange = function() {
-			if (xhr.readyState==4 && (xhr.status == 200 || xhr.status == 0)) {
-				// Checks the response type:
-				if(xhr.getResponseHeader('Content-Type').indexOf('text/plain')!=-1) {
-					affichTextResults(xhr.responseText);
+		$.ajax({
+	        type: 'GET',
+	        url: 'ajax/search.php?search='+escape(search),
+	        success: function(data, textStatus, jqXHR) {
+	        	if(jqXHR.getResponseHeader('Content-Type').indexOf('text/plain')!=-1) {
+					affichTextResults(data);
 				} else {
-					loadJSONResults(xhr.responseText);
+					loadJSONResults(data);
 				}
-			}
-		};
-		
-		xhr.open("GET", "ajax/search.php?search="+escape(search));
-		xhr.send();
+	        }
+        });
 	}
 }
 
@@ -58,10 +53,10 @@ function loadJSONResults(oData) {
 	 * Updates the list of results depending on the response of the PHP script.
 	 * Every results are rewritten.
 	 */
-	var students = jQuery.parseJSON(oData);
-	var ul = document.getElementById('results');
-	var stack = document.getElementById('stack');
-	var search = document.getElementById('search').value;
+	var students = $.parseJSON(oData);
+	var ul = $('#results');
+	var stack = $('#stack');
+	var search = $('#search').val();
 	var student_id, last_name, first_name, department, year, room, picture, gender, mail, groupe;
 	
 	// Adds the new students:
@@ -127,18 +122,17 @@ function affichTextResults(text) {
 	/**
 	 * Displays the HTML code sent by the PHP page.
 	 */
-	var ul = document.getElementById('results');
-	ul.innerHTML = text;
+	$('#results').html(text);
 }
 
 function affichXMLResults() {
 	/**
 	 * Loads new students from the stack and displays them.
 	 */
-	var	stack = document.getElementById('stack');
-	var stack_li = stack.getElementsByTagName('li');
+	var	stack = $('#stack');
+	var stack_li = stack.find('li');
 	if(stack_li.length>0) {
-		var ul = document.getElementById('results');
+		var ul = $('#results');
 		var loadedResults = '';
 		for(var i=0 ; i<18 ; i++) {
 			loadedResults += '<li id="'+stack_li[0].getAttribute('id')+'">'+stack_li[0].innerHTML.substring(4, stack_li[0].innerHTML.length-3)+'</li>';
@@ -147,7 +141,7 @@ function affichXMLResults() {
 				break;
 			}
 		}
-		ul.innerHTML += loadedResults;
+		ul.html(ul.html()+loadedResults);
 	}
 }
 
@@ -188,7 +182,7 @@ function adapter_taille() {
 	var hauteur = $(document).height();
 	var largeur = $(document).width();
 	var style = 'height: '+hauteur+'px; width: '+largeur+'px;';
-	document.getElementById('transp').setAttribute('style', style);
+	$('#transp').setAttribute('style', style);
 }
 
 function voiler(opacity) {
@@ -196,9 +190,9 @@ function voiler(opacity) {
 	 * Used for the first easter egg.
 	 * Slowly increases the opacity of the screen.
 	 */
-	var style = document.getElementById('transp').getAttribute('style');
+	var style = $('#transp').getAttribute('style');
 	style += ' filter: alpha(opacity='+opacity+'); -moz-opacity: .'+opacity+'; opacity: .'+opacity+';';
-	document.getElementById('transp').setAttribute('style', style);
+	$('#transp').setAttribute('style', style);
 	if(opacity<95) {
 		var timer = setTimeout('voiler('+(opacity+0.25)+')', 37);
 	}

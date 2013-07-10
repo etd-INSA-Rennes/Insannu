@@ -4,7 +4,7 @@ function generate_id_confirm() {
 	do {
 		$id_confirm = rand(10000000, 99999999);
 		try {
-			$query = $GLOBALS['bdd_mysql']->prepare("SELECT * FROM students WHERE id_confirm = ?");
+			$query = $GLOBALS['bdd_mysql']->prepare('SELECT * FROM students WHERE id_confirm = ?');
 			$query->execute(array($id_confirm));
 		} catch(Exception $e) {
 			exit('Error: '.$e->getMessage());
@@ -17,7 +17,7 @@ function generate_id() {
 	do {
 		$id = rand(10000000, 99999999);
 		try {
-			$query = $GLOBALS['bdd_mysql']->prepare("SELECT * FROM students WHERE id = ?");
+			$query = $GLOBALS['bdd_mysql']->prepare('SELECT * FROM students WHERE id = ?');
 			$query->execute(array($id));
 		} catch(Exception $e) {
 			exit('Error: '.$e->getMessage());
@@ -30,7 +30,7 @@ function generate_student_id() {
 	do {
 		$id = rand(1000, 4999);
 		try {
-			$query = $GLOBALS['bdd']->prepare("SELECT * FROM students WHERE student_id = ?");
+			$query = $GLOBALS['bdd']->prepare('SELECT * FROM students WHERE student_id = ?');
 			$query->execute(array($id));
 		} catch(Exception $e) {
 			exit('Error: '.$e->getMessage());

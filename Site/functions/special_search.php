@@ -3,8 +3,8 @@
 function specialSearchInsannu($db) {
 	// Selection des etudiants :
 	try {
-		$fields = "student_id, last_name, first_name, department, year, room, picture, gender, mail, groupe";
-		$query = $db->prepare("SELECT ".$fields." FROM students WHERE mail IN (?, ?, ?) ORDER BY last_name, first_name;");
+		$fields = 'student_id, last_name, first_name, department, year, room, picture, gender, mail, groupe';
+		$query = $db->prepare('SELECT '.$fields.' FROM students WHERE mail IN (?, ?, ?) ORDER BY last_name, first_name;');
 		$query->execute(array('Nicolas.Busseneau@insa-rennes.fr', 'Paul.Chaignon@insa-rennes.fr', 'Xavier.Fraboulet@insa-rennes.fr'));
 	} catch(Exception $e) {
 		exit('Error : '.$e->getMessage());
@@ -44,8 +44,8 @@ function specialSearchLoualiche() {
 function specialSearchBIIP($db) {
 	// Selection des etudiants :
 	try {
-		$fields = "student_id, last_name, first_name, department, year, room, picture, gender, mail, groupe";
-		$query = $db->prepare("SELECT ".$fields." FROM students WHERE mail IN (?, ?, ?) ORDER BY last_name, first_name;");
+		$fields = 'student_id, last_name, first_name, department, year, room, picture, gender, mail, groupe';
+		$query = $db->prepare('SELECT '.$fields.' FROM students WHERE mail IN (?, ?, ?) ORDER BY last_name, first_name;');
 		$query->execute(array('Raphael.Baron@insa-rennes.fr', 'Anis.Doghri@insa-rennes.fr', 'Corentin.Nicole@insa-rennes.fr'));
 	} catch(Exception $e) {
 		exit('Error : '.$e->getMessage());
@@ -61,7 +61,7 @@ function specialSearchBIIP($db) {
 function specialSearchRandom($db) {
 	// Selection de tous les etudiants :
 	try {
-		$query = $db->prepare("SELECT * FROM students");
+		$query = $db->prepare('SELECT * FROM students');
 		$query->execute();
 	} catch(Exception $e) {
 		exit('Error : '.$e->getMessage());
@@ -71,8 +71,8 @@ function specialSearchRandom($db) {
 	
 	// Selection de six etudiants :
 	try {
-		$fields = "student_id, last_name, first_name, department, year, room, picture, gender, mail, groupe";
-		$query = $db->prepare("SELECT ".$fields." FROM students WHERE mail IN (?, ?, ?, ?, ?, ?) ORDER BY last_name, first_name;");
+		$fields = 'student_id, last_name, first_name, department, year, room, picture, gender, mail, groupe';
+		$query = $db->prepare('SELECT '.$fields.' FROM students WHERE mail IN (?, ?, ?, ?, ?, ?) ORDER BY last_name, first_name;');
 		$query->execute($params);
 	} catch(Exception $e) {
 		exit('Error : '.$e->getMessage());

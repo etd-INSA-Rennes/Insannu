@@ -1,6 +1,6 @@
 <?php
 
-	require("shared/connect.php");
+	require('shared/connect.php');
 	$search = isset($_GET['search'])? $_GET['search'] : '';
 
 ?>
@@ -17,7 +17,7 @@
 	<script src="/js/jquery-1.8.2.min.js" type="text/javascript"></script>
 </head>
     
-<body onload="infiniteScroll(); document.getElementById('search').focus(); askServeur();">
+<body onload="infiniteScroll(); $('#search').focus(); askServeur();">
 
     <?php include("shared/header.php"); ?>
 	
