@@ -67,11 +67,11 @@ function deleteButtonsMaillists() {
 	**********************/
 	var buttonMaillist = $('#buttonMaillist');
 	if(buttonMaillist) {
-		buttonMaillist.parent().removeChild(buttonMaillist);
+		buttonMaillist.remove();
 	}
 	buttonMaillist = $('#buttonMaillistBcc');
 	if(buttonMaillist) {
-		buttonMaillist.parent().removeChild(buttonMaillist);
+		buttonMaillist.remove();
 	}
 }
 

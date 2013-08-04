@@ -107,9 +107,9 @@ function loadJSONResults(oData) {
 		// Adds the student to the ul for immediate display or to the stack for futur display:
 		if(i<18) {
 			li.innerHTML = li.innerHTML.substring(4, li.innerHTML.length-3);
-			ul.appendChild(li);
+			ul.append(li);
 		} else {
-			stack.appendChild(li);
+			stack.append(li);
 		}
 	}
 	
@@ -129,15 +129,15 @@ function affichXMLResults() {
 	/**
 	 * Loads new students from the stack and displays them.
 	 */
-	var	stack = $('#stack');
+	var stack = $('#stack');
 	var stack_li = stack.find('li');
 	if(stack_li.length>0) {
 		var ul = $('#results');
 		var loadedResults = '';
 		for(var i=0 ; i<18 ; i++) {
-			loadedResults += '<li id="'+stack_li[0].getAttribute('id')+'">'+stack_li[0].innerHTML.substring(4, stack_li[0].innerHTML.length-3)+'</li>';
-			stack.removeChild(stack_li[0]);
-			if(stack_li.length==0) {
+			loadedResults += '<li id="'+stack_li[i].getAttribute('id')+'">'+stack_li[i].innerHTML.substring(4, stack_li[i].innerHTML.length-3)+'</li>';
+			stack_li[i].remove();
+			if(stack_li.length==i+1) {
 				break;
 			}
 		}

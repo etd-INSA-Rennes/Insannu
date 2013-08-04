@@ -88,13 +88,13 @@ function search($db, $input) {
 			// Generates the SQL request for the groups:
 			$part_word = strtoupper(substr($mot, 0, 6));
 			if($part_word=='1STPI-') {
-				$sql_query .= ' OR department LIKE 'STPI' AND year = 1 AND groupe LIKE ?';
+				$sql_query .= ' OR department LIKE \'STPI\' AND year = 1 AND groupe LIKE ?';
 				$params[] = $mot{6};
 			} elseif($part_word=='2STPI-') {
-				$sql_query .= ' OR department LIKE 'STPI' AND year = 2 AND groupe LIKE ?';
+				$sql_query .= ' OR department LIKE \'STPI\' AND year = 2 AND groupe LIKE ?';
 				$params[] = $mot{6};
 			} elseif(strtoupper(substr($mot, 0, 5))=='STPI-') {
-				$sql_query .= ' OR department LIKE 'STPI' AND groupe LIKE ?';
+				$sql_query .= ' OR department LIKE \'STPI\' AND groupe LIKE ?';
 				$params[] = $mot{5};
 			}
 			
