@@ -48,8 +48,9 @@ if(isset($_GET['search']) && isset($_GET['maillist']) && $_GET['maillist']==1) {
 		echo specialSearchLoualiche();*/
 	} else {
 		require("../functions/custom_searches.php");
-		$custom = customSearches($db, $search);
+		$custom = customSearches($search);
 		if($custom=='') {
+			header("Expires: Sat, 14 Sep 2013 05:00:00 GMT");
 			require("../functions/search.php");
 			echo search($db, $search);
 		} else {

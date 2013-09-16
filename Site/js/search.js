@@ -91,14 +91,14 @@ function loadJSONResults(oData) {
 				var innerHTML = '<img height="192" width="144" src="photos/default_male.jpg" alt="Photo par défaut" title="Photo par défaut"/>';
 			}
 			innerHTML += first_name+' '+last_name+'<br/>';
-			if(room==null || room=='') {
+			/*if(room==null || room=='') {
 				innerHTML += 'Chambre inconnue<br/>';
 			} else if(room=='Externe') {
 				innerHTML += 'Externe<br/>';
 			} else {
 				var couloir = (room.substr(0, 2)=='BN')? room.substr(0, 4) : room.substr(0, 3);
 				innerHTML += '<a href="index.php?search='+couloir+'">'+room+'</a><br/>';
-			}
+			}*/
 			if(groupe!='') {
 				innerHTML += '<a href="index.php?search='+year+groupe+'">'+year+department+'-'+groupe+'</a>';
 			} else {

@@ -1,5 +1,9 @@
 <?php
 
+	/*
+
+	echo file_get_contents("custom/3INFO-A.json");
+
 	exit();
 
 	require('secret/sqlite.php');
@@ -30,6 +34,6 @@
 			}
 		}
 	}
-	
+	*/
 	
 ?>

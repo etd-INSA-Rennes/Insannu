@@ -1,12 +1,12 @@
 <?php
 
-exit();
+// exit();
 
-class Insa_LDAP {
+class InsaLDAP {
 	private $host, $port, $link;
 	protected $dn, $filter;
 
-	public function __construct() {
+	public function InsaLDAP() {
 		$this->host = 'ldap.insa-rennes.fr';
 		$this->port = 389;
 		$this->link = null;
@@ -22,7 +22,7 @@ class Insa_LDAP {
 
 	/**
 	* Connexion au serveur LDAP.
-	* @throws RuntimeException si la connexion échoue.
+	* @throws RuntimeException si la connexion echoue.
 	*/
 	protected function connect() {
 		if($this->link) {
@@ -56,8 +56,6 @@ class Insa_LDAP {
 			return null;
 		}
 		$result = $results[0];
-		
-		var_dump($result);
 
 		return array(
 				'classe' => (isset($result['insaclasseetu'])? $result['insaclasseetu'][0] : null),
@@ -80,8 +78,6 @@ class Insa_LDAP {
 		if($results['count']<1) {
 			return null;
 		}
-		
-		// var_dump($results);
 		
 		$array = array();
 		foreach($results as $result) {
@@ -115,8 +111,6 @@ class Insa_LDAP {
 			return null;
 		}
 		
-		// var_dump($results);
-		
 		$array = array();
 		foreach($results as $result) {
 			$array[] = array(
@@ -139,21 +133,22 @@ class Insa_LDAP {
 }
 
 /*
-$ldap = new Insa_Ldap();
+$ldap = new InsaLDAP();
 var_dump($ldap->getByEmail('Sebastien.Fournier@insa-rennes.fr'));
 */
-/*
+
 require('secret/sqlite.php');
-connect_db('secret/insannu.db');
+$bdd = connect_db('secret/insannu.db');
 
-$query = $GLOBALS['bdd']->exec("DELETE FROM students");
+$query = $bdd->exec("DELETE FROM students");
 
-$ldap = new Insa_Ldap();
+$ldap = new InsaLDAP();
+
 $students = $ldap->getAllStudents();
 echo count($students).'<br/>';
-$query = $GLOBALS['bdd']->prepare("INSERT INTO students('login', 'first_name', 'last_name', 'mail', 'year', 'department', 'groupe') VALUES(?, ?, ?, ?, ?, ?, ?)");
+
+$query = $bdd->prepare("INSERT INTO students('student_id', 'login', 'first_name', 'last_name', 'mail', 'year', 'department', 'groupe') VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
 foreach($students as $student) {
-	var_dump($student);
 	$year = '';
 	switch($student['classe']) {
 		case 'DOCT':
@@ -174,11 +169,15 @@ foreach($students as $student) {
 	} else {
 		$groupe = strtoupper(substr($student['groupe'], 6));
 	}
-	$query->execute(array($student['login'], $student['first_name'], $student['last_name'], $student['mail'], $year, $department, $groupe));
+	echo $student['login'].' '.$student['first_name'].' '.$student['last_name'].' '.$student['mail'].' '.$year.' '.$department.' '.$groupe.'<br/>';
+	$success = $query->execute(array($student['uidnumber'], $student['login'], $student['first_name'], $student['last_name'], $student['mail'], $year, $department, $groupe));
+	if(!$success) {
+		echo 'ARG!<br/>';
+	}
 }
-*/
 
-/*$ldap = new Insa_Ldap();
+
+/*$ldap = new InsaLDAP();
 var_dump($ldap->getByEmail('Julia.Saussereau@insa-rennes.fr'));*/
 
 /*require('secret/sqlite.php');
@@ -191,7 +190,7 @@ try {
 	exit('Error : '.$e->getMessage());
 }
 
-$ldap = new Insa_Ldap();
+$ldap = new InsaLDAP();
 $query1 = $GLOBALS['bdd']->prepare("UPDATE students SET login = ? WHERE mail LIKE ?");
 while($data = $query0->fetch()) {
 	$ldap_infos = $ldap->getByEmail($data['mail']);
