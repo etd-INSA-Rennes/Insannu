@@ -26,50 +26,50 @@ function search($db, $input) {
 		if($mot=='GARS' || $mot=='FILLE' || $mot=='FILLES') {
 			switch($mot) {
 				case 'FILLE':
-					$sql_query .= " AND gender LIKE 'Female'";
+					$sql_query .= ' AND gender LIKE \'Female\'';
 				break;
 				case 'GARS':
-					$sql_query .= " AND gender LIKE 'Male'";
+					$sql_query .= ' AND gender LIKE \'Male\'';
 				break;
 				case 'FILLES':
-					$sql_query .= " AND gender LIKE 'Female'";
+					$sql_query .= ' AND gender LIKE \'Female\'';
 				break;
 			} 
 		
 		// Generates the SQL request for the residences:
 		} else if($mot=='ARZ') {
-			$sql_query .= " AND room LIKE ?";
-			$params[] = "a%";
+			$sql_query .= ' AND room LIKE ?';
+			$params[] = 'a%';
 		} elseif($mot=='BREHAT') {
-			$sql_query .= " AND room LIKE ?";
-			$params[] = "b%";
+			$sql_query .= ' AND room LIKE ?';
+			$params[] = 'b%';
 		} elseif($mot=='CEZEMBRE') {
-			$sql_query .= " AND room LIKE ?";
-			$params[] = "c%";
+			$sql_query .= ' AND room LIKE ?';
+			$params[] = 'c%';
 		} elseif($mot=='GLENAN') {
-			$sql_query .= " AND room LIKE ?";
-			$params[] = "d%";
+			$sql_query .= ' AND room LIKE ?';
+			$params[] = 'd%';
 		
 		// Generates the SQL request for Anis:
 		} else if($mot=='AZIZ') {
-			$sql_query .= " AND (first_name LIKE 'Anis' AND last_name LIKE 'DOGHRI')";
+			$sql_query .= ' AND (first_name LIKE \'Anis\' AND last_name LIKE \'DOGHRI\')';
 		
 		// Generates the SQL request for the years:
 		} else if(strlen($mot)==3 && substr($mot, 1)=='AN' && is_numeric($mot{0})) {
-			$sql_query .= " AND year = ?";
+			$sql_query .= ' AND year = ?';
 			$params[] = $mot{0};
 		
 		// Generates the SQL request for the groups:
 		} else if(strlen($mot)==2 && ($mot{0}==1 || $mot{0}==2) && !is_numeric($mot{1})) {
-			$sql_query .= " AND (year = ? AND groupe LIKE ?)";
+			$sql_query .= ' AND (year = ? AND groupe LIKE ?)';
 			array_push($params, $mot{0}, $mot{1});
 		
 		} else {
 			
 			// Generates the SQL request for the name, the login and the ip address:
-			$sql_query .= " AND (last_name LIKE ?";
-			$sql_query .= " OR first_name LIKE ?";
-			$sql_query .= " OR login LIKE ?";
+			$sql_query .= ' AND (last_name LIKE ?';
+			$sql_query .= ' OR first_name LIKE ?';
+			$sql_query .= ' OR login LIKE ?';
 			array_push($params, '%'.$mot.'%', '%'.$mot.'%', '%'.$mot.'%'/*, '%'.$mot.'%'*/);
 			
 			
@@ -78,23 +78,23 @@ function search($db, $input) {
 				$bnc = substr($mot, 0, 2).'c'.substr($mot, 2);
 				$bns = substr($mot, 0, 2).'s'.substr($mot, 2);
 				$bnn = substr($mot, 0, 2).'n'.substr($mot, 2);
-				$sql_query .= " OR (room LIKE ? OR room LIKE ? OR room LIKE ?)";
+				$sql_query .= ' OR (room LIKE ? OR room LIKE ? OR room LIKE ?)';
 				array_push($params, '%'.$bnc.'%', '%'.$bnn.'%', '%'.$bns.'%');
 			} else {
-				$sql_query .= " OR room LIKE ?";
+				$sql_query .= ' OR room LIKE ?';
 				$params[] = $mot.'%';
 			}
 			
 			// Generates the SQL request for the groups:
 			$part_word = strtoupper(substr($mot, 0, 6));
 			if($part_word=='1STPI-') {
-				$sql_query .= " OR department LIKE 'STPI' AND year = 1 AND groupe LIKE ?";
+				$sql_query .= ' OR department LIKE \'STPI\' AND year = 1 AND groupe LIKE ?';
 				$params[] = $mot{6};
 			} elseif($part_word=='2STPI-') {
-				$sql_query .= " OR department LIKE 'STPI' AND year = 2 AND groupe LIKE ?";
+				$sql_query .= ' OR department LIKE \'STPI\' AND year = 2 AND groupe LIKE ?';
 				$params[] = $mot{6};
 			} elseif(strtoupper(substr($mot, 0, 5))=='STPI-') {
-				$sql_query .= " OR department LIKE 'STPI' AND groupe LIKE ?";
+				$sql_query .= ' OR department LIKE \'STPI\' AND groupe LIKE ?';
 				$params[] = $mot{5};
 			}
 			
@@ -102,22 +102,22 @@ function search($db, $input) {
 			if($mot!='' && is_numeric($mot{0}) && !is_numeric($mot)) {
 				$part_word = strtoupper(substr($mot, 1));
 				if($part_word=='STPI' || $part_word=='INFO' || $part_word=='EII' || $part_word=='SRC' || $part_word=='GCU' || $part_word=='GMA' || $part_word=='SGM') {
-					$sql_query .= " OR (year = ? AND department LIKE ?)";
+					$sql_query .= ' OR (year = ? AND department LIKE ?)';
 					array_push($params, $mot{0}, $part_word);
 				} elseif($part_word=='GC') {
 				// Special case for GC abbreviation.
-					$sql_query .= " OR (year = ? AND department LIKE 'GCU')";
+					$sql_query .= ' OR (year = ? AND department LIKE \'GCU\')';
 					$params[] = $mot{0};
 				} elseif($part_word=='MNT') {
 				// Special case for old name of SGM.
-					$sql_query .= " OR (year = ? AND department LIKE 'SGM')";
+					$sql_query .= ' OR (year = ? AND department LIKE \'SGM\')';
 					$params[] = $mot{0};
 				} else {
-					$sql_query .= " OR year = ? OR department LIKE ?";
+					$sql_query .= ' OR year = ? OR department LIKE ?';
 					array_push($params, $mot, '%'.$mot.'%');
 				}
 			} else {
-				$sql_query .= " OR year = ? OR department LIKE ?";
+				$sql_query .= ' OR year = ? OR department LIKE ?';
 				array_push($params, $mot, '%'.$mot.'%');
 			}
 			
@@ -129,8 +129,8 @@ function search($db, $input) {
 	// Executes the request on the database:
 	try {
 		$order_by = $room? 'room, ' : '';
-		$fields = "student_id, last_name, first_name, department, year, room, picture, gender, mail, groupe";
-		$query = $db->prepare("SELECT ".$fields." FROM students WHERE ".$sql_query." ORDER BY ".$order_by."last_name, first_name;");
+		$fields = 'student_id, last_name, first_name, department, year, room, picture, gender, mail, groupe';
+		$query = $db->prepare('SELECT '.$fields.' FROM students WHERE '.$sql_query.' ORDER BY '.$order_by.'last_name, first_name;');
 		$query->execute($params);
 	} catch(Exception $e) {
 		exit('Error : '.$e->getMessage());

@@ -9,8 +9,8 @@ function voisins($db, $ip_address) {
 	}
 
 	header("Content-Type: text/xml; charset=utf-8");
-	echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
-	echo "<students>";
+	echo '<?xml version="1.0" encoding="utf-8"?>';
+	echo '<students>';
 	
 	if($visiteur = $query->fetch()) {
 		if(substr($visiteur['room'], 0, 2)=='BN') {
@@ -44,7 +44,7 @@ function voisins($db, $ip_address) {
 		}
 	}
 	
-	echo "</students>";
+	echo '</students>';
 	
 	$query->closeCursor();
 }

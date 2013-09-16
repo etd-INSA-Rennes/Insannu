@@ -40,7 +40,7 @@ $admins_ips = array('192.168.1.2', '10.133.22.218', '10.133.21.212');
 	</script>
 </head>
 
-<body onload="document.getElementById('password').focus();" style="margin: 0 auto; text-align: center;">
+<body onload="$('#password').focus();" style="margin: 0 auto; text-align: center;">
 	
 	<header id="header">
 		<h1 id="logo"><a href="."><img src="/img/logo.gif" alt="Insannu" style="text-decoration:none;"/></a></h1>
