@@ -6,22 +6,33 @@ function maillist(bcc) {
 	var p = $('#maillist');
 	
 	if(p.html()=='') {
+		// Retrieve email addresses from inputs:
+		var emails = new Array();
 		var inputs = $('input');
+		for(var i=1; i<inputs.length; i++) {
+			if(inputs[i].getAttribute('type') == 'hidden') {
+				emails.push(inputs[i].value);
+			}
+		}
+		// Retrieve email addresses from stack:
+		var stack = $('#stack').html();
+		var pattern = /type="hidden" value="(.+?)"/g;
+		pattern.compile(pattern);
+		while(email = pattern.exec(stack)) {
+			emails.push(email[1]);
+		}
+
 		p.html('');
 		var maillist = '';
-		for(var i=1 ; i<inputs.length ; i++) {
-			if(inputs[i].getAttribute('type')=='hidden') {
-				maillist += inputs[i].value+', ';
-			}
-			if(i%400==0) {
-				add_maillist(p, maillist, bcc);
+		for(var i=0; i<emails.length; i++) {
+			maillist += emails[i] + ', ';
+			if(i%400==399) {
+				addMaillist(p, maillist, bcc);
 				maillist = '';
 			}
 		}
 		
-		add_maillist(p, maillist, bcc);
-		var results = $('#results');
-		results.parent().insertBefore(p, results);
+		addMaillist(p, maillist, bcc);
 		
 		// Mise a jour des statistiques :
 		var search = $('#search').val();
@@ -45,12 +56,12 @@ function maillist(bcc) {
 	}
 }
 
-function add_maillist(p, maillist, bcc) {
+function addMaillist(p, maillist, bcc) {
 	maillist = maillist.slice(0, -2);
 	if(bcc) {
-		p.innerHTML += '<br/><a href="mailto:?&bcc='+maillist+'">'+maillist+'</a><br/>';
+		p.html(p.html()+'<br/><a href="mailto:?&bcc='+maillist+'">'+maillist+'</a><br/>');
 	} else {
-		p.innerHTML += '<br/><a href="mailto:'+maillist+'">'+maillist+'</a><br/>';
+		p.html(p.html()+'<br/><a href="mailto:'+maillist+'">'+maillist+'</a><br/>');
 	}
 }
 
@@ -87,19 +98,10 @@ function addButtonMaillist(bcc) {
 	/********************************
 	Ajoute un bouton "maillist".
 	********************************/
-	var listing = $('#maillist');
-	var button = document.createElement('a');
-	var textButton;
-	button.setAttribute('class', 'button');
 	if(bcc) {
-		button.setAttribute('id', 'buttonMaillistBcc');
-		button.setAttribute('onclick', 'maillist(true);');
-		textButton = document.createTextNode('Listing d\'emails en copie caché');
+		var html = '<a class="button" id="buttonMaillistBcc" onclick="maillist(true);">Listing d\'emails en copie cachée</a>';
 	} else {
-		button.setAttribute('id', 'buttonMaillist');
-		button.setAttribute('onclick', 'maillist(false);');
-		textButton = document.createTextNode('Listing d\'emails');
+		var html = '<a class="button" id="buttonMaillist" onclick="maillist(false);">Listing d\'emails</a>';
 	}
-	button.appendChild(textButton);
-	listing.parent().insertBefore(button, listing);
+	$('#maillist').before(html);
 }
