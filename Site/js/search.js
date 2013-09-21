@@ -6,7 +6,7 @@ function recherche() {
 	 */
 	var previous_search = $('#previous_search');
 	var search = $('#search');
-	if(previous_search.val()!=search.val()) {
+	if(previous_search.val() != search.val()) {
 		window.clearTimeout(t);
 		t = window.setTimeout(askServeur, 400);
 		previous_search.val(search.val());
@@ -33,7 +33,7 @@ function askServeur() {
 	clearMaillist();
 	deleteButtonsMaillists();
 	
-	if(search.length>1) {
+	if(search.length > 1) {
 		$.ajax({
 	        type: 'GET',
 	        url: 'ajax/search.php?search='+escape(search),
@@ -72,7 +72,9 @@ function loadJSONResults(oData) {
 		gender = students[i][7];
 		mail = students[i][8];
 		groupe = students[i][9];
-		if(last_name=='Doghri' && (search=='Aziz' || search=='aziz')) last_name = "Doghri (dit 'Aziz')";
+		if(last_name=='Doghri' && (search=='Aziz' || search=='aziz')) {
+			last_name = "Doghri (dit 'Aziz')";
+		}
 		
 		// Displays information:
 		var li = document.createElement('li');
@@ -94,10 +96,12 @@ function loadJSONResults(oData) {
 				var couloir = (room.substr(0, 2)=='BN')? room.substr(0, 4) : room.substr(0, 3);
 				innerHTML += '<a href="index.php?search='+couloir+'">'+room+'</a><br/>';
 			}*/
-			if(groupe!='') {
+			if(groupe != '') {
 				innerHTML += '<a href="index.php?search='+year+groupe+'">'+year+department+'-'+groupe+'</a>';
 			} else {
-				if(department!='Doctorant' && department!='Master') innerHTML += year;
+				if(department!='Doctorant' && department!='Master') {
+					innerHTML += year;
+				}
 				innerHTML += department;
 			}
 			innerHTML += '<br/><input type="hidden" value="'+mail+'"/><br/>';
@@ -129,14 +133,13 @@ function affichXMLResults() {
 	/**
 	 * Loads new students from the stack and displays them.
 	 */
-	var stack = $('#stack');
-	var stack_li = stack.find('li');
+	var stack_li = $('#stack').children();
 	if(stack_li.length>0) {
 		var ul = $('#results');
 		var loadedResults = '';
 		for(var i=0 ; i<18 ; i++) {
 			loadedResults += '<li id="'+stack_li[i].getAttribute('id')+'">'+stack_li[i].innerHTML.substring(4, stack_li[i].innerHTML.length-3)+'</li>';
-			stack_li[i].remove();
+			$('#stack li:first').remove();
 			if(stack_li.length==i+1) {
 				break;
 			}
@@ -171,7 +174,7 @@ function ucwords(chaine) {
 	 * Equivalent to ucwords in PHP.
 	 * Puts the first letter of a word in upper case and the rest in lower case.
 	 */
-	return chaine.substr(0,1).toUpperCase()+chaine.substr(1,chaine.length).toLowerCase();
+	return chaine.substr(0,1).toUpperCase() + chaine.substr(1,chaine.length).toLowerCase();
 }
 
 function adapter_taille() {
