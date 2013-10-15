@@ -1,9 +1,9 @@
 var t;
 
+/**
+ * Requests the server 0.4sec after the last input.
+ */
 function recherche() {
-	/**
-	 * Requests the server 0.4sec after the last input.
-	 */
 	var previous_search = $('#previous_search');
 	var search = $('#search');
 	if(previous_search.val() != search.val()) {
@@ -13,12 +13,11 @@ function recherche() {
 	}
 }
 
+/**
+ * Requests the PHP script search.php to obtain the list of results.
+ */
 function askServeur() {
-	/**
-	 * Requests the PHP script search.php to obtain the list of results.
-	 */
 	var search = $('#search').val();
-	var ul = $('#results');
 	
 	switch(search) {
 		case '*':
@@ -29,9 +28,7 @@ function askServeur() {
 		break;
 	}
 	
-	ul.html('');
-	clearMaillist();
-	deleteButtonsMaillists();
+	clearAll();
 	
 	if(search.length > 1) {
 		$.ajax({
@@ -48,11 +45,23 @@ function askServeur() {
 	}
 }
 
+/**
+ * Clear everything before the new search.
+ * It clears the old results, the stack, the maillist and the maillist buttons.
+ */
+function clearAll() {
+	$('#results').html('');
+	$('#stack').html('');
+	clearMaillist();
+	deleteButtonsMaillists();
+}
+
+/**
+ * Updates the list of results depending on the response of the PHP script.
+ * Every results are rewritten.
+ * @param oData JSON data to display.
+ */
 function loadJSONResults(oData) {
-	/**
-	 * Updates the list of results depending on the response of the PHP script.
-	 * Every results are rewritten.
-	 */
 	var students = $.parseJSON(oData);
 	var ul = $('#results');
 	var stack = $('#stack');
@@ -122,17 +131,17 @@ function loadJSONResults(oData) {
 	}
 }
 
+/**
+ * Displays the HTML code sent by the PHP page.
+ */
 function affichTextResults(text) {
-	/**
-	 * Displays the HTML code sent by the PHP page.
-	 */
 	$('#results').html(text);
 }
 
+/**
+ * Loads new students from the stack and displays them.
+ */
 function affichXMLResults() {
-	/**
-	 * Loads new students from the stack and displays them.
-	 */
 	var stack_li = $('#stack').children();
 	if(stack_li.length>0) {
 		var ul = $('#results');
@@ -148,11 +157,11 @@ function affichXMLResults() {
 	}
 }
 
+/**
+ * Calls affichXMLResults to load new students from the stack
+ * when the user reachs the bottom of the page.
+ */
 function infiniteScroll() {
-	/**
-	 * Calls affichXMLResults to load new students from the stack
-	 * when the user reachs the bottom of the page.
-	 */
 	var offset = 20;
 	var size;
     $(window).data('scrollready', true);
@@ -169,30 +178,30 @@ function infiniteScroll() {
 	});
 };
 
+/**
+ * Equivalent to ucwords in PHP.
+ * Puts the first letter of a word in upper case and the rest in lower case.
+ */
 function ucwords(chaine) {
-	/**
-	 * Equivalent to ucwords in PHP.
-	 * Puts the first letter of a word in upper case and the rest in lower case.
-	 */
 	return chaine.substr(0,1).toUpperCase() + chaine.substr(1,chaine.length).toLowerCase();
 }
 
+/**
+ * Used for the first easter egg.
+ * Increases the size of the small image hidden in the corner of the page.
+ */
 function adapter_taille() {
-	/**
-	 * Used for the first easter egg.
-	 * Increases the size of the small image hidden in the corner of the page.
-	 */
 	var hauteur = $(document).height();
 	var largeur = $(document).width();
 	var style = 'height: '+hauteur+'px; width: '+largeur+'px;';
 	$('#transp').setAttribute('style', style);
 }
 
+/**
+ * Used for the first easter egg.
+ * Slowly increases the opacity of the screen.
+ */
 function voiler(opacity) {
-	/**
-	 * Used for the first easter egg.
-	 * Slowly increases the opacity of the screen.
-	 */
 	var style = $('#transp').getAttribute('style');
 	style += ' filter: alpha(opacity='+opacity+'); -moz-opacity: .'+opacity+'; opacity: .'+opacity+';';
 	$('#transp').setAttribute('style', style);
