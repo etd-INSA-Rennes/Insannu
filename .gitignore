@@ -1,4 +1,6 @@
-Site/photos/
-
-Site/photos_uploaded/
+www/photos/
+www/photos_uploaded/
 *.jpg
+PHPMailer/
+*.db
+data/
