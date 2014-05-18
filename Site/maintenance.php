@@ -1,15 +1,3 @@
-<?php
-
-	require_once('functions/tools.php');
-	if(inMaintenance()) {
-		header('Location: maintenance.php');
-		exit();
-	}
-
-	require('shared/connect.php');
-	$search = isset($_GET['search'])? $_GET['search'] : '';
-
-?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -26,19 +14,8 @@
 <body onload="infiniteScroll(); $('#search').focus(); askServeur();">
 
 	<?php include("shared/header.php"); ?>
-	
-	<noscript>
-		Tu dois activer le javascript pour que la recherche instantannée fonctionne !
-	</noscript>
 			
-	<form id="searchform" method="get" action="index.php">
-		<input type="hidden" id="previous_search" name="previous_search" value=""/>
-		<input type="text" id="search" name="search" onkeyup="recherche();" value="<?php echo $search; ?>"/>
-		<a class="button">Recherche Insannu</a>
-	</form>
-	
-	<div id="maillist"></div>
-	<ul id="results"></ul>
+	L'Insannu est actuellement en maintenance. Veuillez réessayer dans un instant.
 	
 	<ul id="stack" style="display: none;"></ul>
 		
