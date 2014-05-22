@@ -1,6 +1,6 @@
 <?php
 
-	require('../data/sqlite.php');
+	require('../include/sqlite.php');
 	$db = connect_db('../data/insannu.db');
 	
 	if(isset($_POST['name']) && isset($_POST['login']) && isset($_POST['room']) && isset($_POST['year']) && isset($_POST['department']) && isset($_POST['gender'])) {
@@ -187,9 +187,7 @@
 				echo $data['first_name'].' '.ucwords($data['last_name']).'<br/>';
 				if($data['room']=='Externe') {
 					echo $data['room'].'<br/>';
-				} else if($data['room']=='') {
-					echo 'Chambre inconnue<br/>';
-				} else {
+				} else if($data['room'] != '') {
 					$couloir = (substr($data['room'], 0, 2)=='BN')? substr($data['room'], 0, 4) : substr($data['room'], 0, 3);
 					echo '<a href="index.php?search='.$couloir.'">'.$data['room'].'</a><br/>';
 				}

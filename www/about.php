@@ -16,9 +16,9 @@
 			Il est uniquement accessible depuis le campus de l'INSA et n'a pas pour vocation d'être accessible de l'extérieur.
 		</p>
 		<p>
-			Les informations personnelles des étudiants sont récupérées régulièrement grâce à un script Python depuis l'annuaire officiel.</a><br />
-			Le script permet au passage d'ajouter différentes informations telles que les adresses IP ou les groupes (pour 1ère et 2ème années).<br />
+			Les informations personnelles des étudiants sont récupérées régulièrement grâce à divers scripts PHP depuis l'annuaire officiel.</a><br />
 			Une base de donnée SQLite est ainsi construite, et nous utilisons PHP pour présenter ces données via un serveur Apache.<br />
+			Certaines informations (les photos mises à jour notamment) sont aussi reprises d'une année sur l'autre.<br />
 			En somme, l'Insannu n'est que l'annuaire officiel avec plus de possibilités de recherche.<br />
 		</p>
 	</div>
