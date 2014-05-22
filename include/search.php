@@ -11,8 +11,21 @@ function search($db, $input) {
 	$order_by = false;
 	
 	foreach($mots as $mot) {
+
+		$like = 'LIKE';
+		$or = 'OR';
+		$and = 'AND';
+		$eq = '=';
+		// Invert the meaning if ! or - is detected:
+		if($mot{0}=='!' || $mot{0}=='-') {
+			$like = 'NOT LIKE';
+			$or = 'AND';
+			$and = 'OR';
+			$eq = '<>';
+			$mot = substr($mot, 1);
+		}
 		
-		// Generates the ORDER BY :
+		// Generates the ORDER BY:
 		if(!$room) {
 			$part_word = substr($mot, 0, 2);
 			if(strlen($mot)>2 && is_numeric($mot{2}) && ($part_word=='BN' || $part_word=='BS' || $part_word=='CN' || $part_word=='CS' || $part_word=='AN' || $part_word=='AS')) {
@@ -21,55 +34,55 @@ function search($db, $input) {
 				$room = true;
 			}
 		}
-			
+		
 		// Generates the SQL request for gender:
 		if($mot=='GARS' || $mot=='FILLE' || $mot=='FILLES') {
 			switch($mot) {
 				case 'FILLE':
-					$sql_query .= ' AND gender LIKE \'Female\'';
+					$sql_query .= " AND gender $like 'Female'";
 				break;
 				case 'GARS':
-					$sql_query .= ' AND gender LIKE \'Male\'';
+					$sql_query .= " AND gender $like 'Male'";
 				break;
 				case 'FILLES':
-					$sql_query .= ' AND gender LIKE \'Female\'';
+					$sql_query .= " AND gender $like 'Female'";
 				break;
 			} 
 		
 		// Generates the SQL request for the residences:
 		} else if($mot=='ARZ') {
-			$sql_query .= ' AND room LIKE ?';
+			$sql_query .= " AND room $like ?";
 			$params[] = 'a%';
 		} elseif($mot=='BREHAT') {
-			$sql_query .= ' AND room LIKE ?';
+			$sql_query .= " AND room $like ?";
 			$params[] = 'b%';
 		} elseif($mot=='CEZEMBRE') {
-			$sql_query .= ' AND room LIKE ?';
+			$sql_query .= " AND room $like ?";
 			$params[] = 'c%';
 		} elseif($mot=='GLENAN') {
-			$sql_query .= ' AND room LIKE ?';
+			$sql_query .= " AND room $like ?";
 			$params[] = 'd%';
 		
 		// Generates the SQL request for Anis:
 		} else if($mot=='AZIZ') {
-			$sql_query .= ' AND (first_name LIKE \'Anis\' AND last_name LIKE \'DOGHRI\')';
+			$sql_query .= " AND (first_name $like 'Anis' $and last_name $like 'DOGHRI')";
 		
 		// Generates the SQL request for the years:
 		} else if(strlen($mot)==3 && substr($mot, 1)=='AN' && is_numeric($mot{0})) {
-			$sql_query .= ' AND year = ?';
+			$sql_query .= " AND year $eq ?";
 			$params[] = $mot{0};
 		
 		// Generates the SQL request for the groups:
 		} else if(strlen($mot)==2 && ($mot{0}==1 || $mot{0}==2) && !is_numeric($mot{1})) {
-			$sql_query .= ' AND (year = ? AND groupe LIKE ?)';
+			$sql_query .= " AND (year $eq ? $and groupe $like ?)";
 			array_push($params, $mot{0}, $mot{1});
 		
 		} else {
 			
 			// Generates the SQL request for the name, the login and the ip address:
-			$sql_query .= ' AND (last_name LIKE ?';
-			$sql_query .= ' OR first_name LIKE ?';
-			$sql_query .= ' OR login LIKE ?';
+			$sql_query .= " AND (last_name $like ?";
+			$sql_query .= " $or first_name $like ?";
+			$sql_query .= " $or login $like ?";
 			array_push($params, '%'.$mot.'%', '%'.$mot.'%', '%'.$mot.'%'/*, '%'.$mot.'%'*/);
 			
 			
@@ -78,23 +91,23 @@ function search($db, $input) {
 				$bnc = substr($mot, 0, 2).'c'.substr($mot, 2);
 				$bns = substr($mot, 0, 2).'s'.substr($mot, 2);
 				$bnn = substr($mot, 0, 2).'n'.substr($mot, 2);
-				$sql_query .= ' OR (room LIKE ? OR room LIKE ? OR room LIKE ?)';
+				$sql_query .= " $or (room $like ? $or room $like ? $or room $like ?)";
 				array_push($params, '%'.$bnc.'%', '%'.$bnn.'%', '%'.$bns.'%');
 			} else {
-				$sql_query .= ' OR room LIKE ?';
-				$params[] = $mot.'%';
+				$sql_query .= " $or room $like ?";
+				$params[] = '%'.$mot.'%';
 			}
 			
 			// Generates the SQL request for the groups:
 			$part_word = strtoupper(substr($mot, 0, 6));
 			if($part_word=='1STPI-') {
-				$sql_query .= ' OR department LIKE \'STPI\' AND year = 1 AND groupe LIKE ?';
+				$sql_query .= " $or department $like 'STPI' $and year $eq 1 $and groupe $like ?";
 				$params[] = $mot{6};
 			} elseif($part_word=='2STPI-') {
-				$sql_query .= ' OR department LIKE \'STPI\' AND year = 2 AND groupe LIKE ?';
+				$sql_query .= " $or department $like 'STPI' $and year $eq 2 $and groupe $like ?";
 				$params[] = $mot{6};
 			} elseif(strtoupper(substr($mot, 0, 5))=='STPI-') {
-				$sql_query .= ' OR department LIKE \'STPI\' AND groupe LIKE ?';
+				$sql_query .= " $or department $like 'STPI' $and groupe $like ?";
 				$params[] = $mot{5};
 			}
 			
@@ -102,23 +115,26 @@ function search($db, $input) {
 			if($mot!='' && is_numeric($mot{0}) && !is_numeric($mot)) {
 				$part_word = strtoupper(substr($mot, 1));
 				if($part_word=='STPI' || $part_word=='INFO' || $part_word=='EII' || $part_word=='SRC' || $part_word=='GCU' || $part_word=='GMA' || $part_word=='SGM') {
-					$sql_query .= ' OR (year = ? AND department LIKE ?)';
+					$sql_query .= " $or (year $eq ? $and department $like ?)";
 					array_push($params, $mot{0}, $part_word);
 				} elseif($part_word=='GC') {
 				// Special case for GC abbreviation.
-					$sql_query .= ' OR (year = ? AND department LIKE \'GCU\')';
+					$sql_query .= " $or (year $eq ? $and department $like 'GCU')";
 					$params[] = $mot{0};
 				} elseif($part_word=='MNT') {
 				// Special case for old name of SGM.
-					$sql_query .= ' OR (year = ? AND department LIKE \'SGM\')';
+					$sql_query .= " $or (year $eq ? $and department $like 'SGM')";
 					$params[] = $mot{0};
 				} else {
-					$sql_query .= ' OR year = ? OR department LIKE ?';
+					$sql_query .= " $or year $eq ? $or department $like ?";
 					array_push($params, $mot, '%'.$mot.'%');
 				}
+			} else if(is_numeric($mot)) {
+				$sql_query .= " $or year $eq ?";
+				array_push($params, $mot);
 			} else {
-				$sql_query .= ' OR year = ? OR department LIKE ?';
-				array_push($params, $mot, '%'.$mot.'%');
+				$sql_query .= " $or department $like ?";
+				array_push($params, '%'.$mot.'%');
 			}
 			
 			$sql_query .= ')';
