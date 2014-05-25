@@ -8,6 +8,7 @@ set_time_limit(0);
 <head>
 	<meta charset="utf-8"/>
 	<title>Installation of the Insannu</title>
+	<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 	<?php

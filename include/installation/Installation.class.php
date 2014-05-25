@@ -5,6 +5,7 @@ require_once('LDAP.class.php');
 require_once('OldStudentsAccessor.class.php');
 require_once('OfficialDirectory.class.php');
 require_once('GenderRules.class.php');
+require_once('../../include/tools.php');
 
 /**
  * Main class for the installation process.
@@ -20,6 +21,7 @@ class Installation {
 	private $oldDatabaseFile;
 	private $step;
 	private $studentsUpdated;
+	private $nbRulesAdded;
 	private $subStep;
 
 	/**
@@ -178,6 +180,9 @@ class Installation {
 					$student->displayGender();
 				}
 				break;
+			case InstallationStep::RULES_FROM_NAME:
+				echo $this->nbRulesAdded.' nouvelles règles ont été enregistrées.<br/>'."\n";
+				break;
 			case InstallationStep::APPLY_GENDER_RULES:
 				echo 'Les règles pour la détermination du sexe à partir du prénom ont été appliqué avec succès sur '.$nbUpdated.' étudiants.<br/><br/>'."\n\n";
 				foreach($this->studentsUpdated as $student) {
@@ -262,8 +267,13 @@ class Installation {
 				}
 				break;
 			case InstallationStep::RULES_FROM_NAME:
-				exit('This part of the installation process has not been written yet.');
-				$this->displayNames();
+				if(isset($_POST['add_rules'])) {
+					$this->nbRulesAdded = GenderRules::getInstance()->processNewGenderRules();
+				} else {
+					$names = StudentsManager::getFirstNames();
+					GenderRules::getInstance()->displayNamesWithoutRule($names);
+					exit();
+				}
 				break;
 			case InstallationStep::APPLY_GENDER_RULES:
 				$students = StudentsManager::getStudents($this->subStep);
@@ -276,6 +286,7 @@ class Installation {
 				}
 				break;
 			case InstallationStep::GENDER_FROM_PICTURES:
+				exit('This part of the installation process has not been written yet.');
 				$this->displayPictures();
 				break;
 			default:
@@ -301,57 +312,7 @@ class Installation {
 		$array['step'] = $this->step;
 		$array['sub_step'] = $this->subStep;
 		$array['old_database_file'] = $this->oldDatabaseFile;
-		$this->writeInstallationFile($array);
-	}
-
-	/**
-	 * Writes an array of values to the installation INI file.
-	 * @param array The array of values to write.
-	 * @param hasSections True if the INi file has sections. Default to false.
-	 * @return True if the file was successfully written.
-	 */
-	private function writeInstallationFile($array, $hasSections = false) {
-		$content = '';
-		if($hasSections) {
-		// Has sections.
-			foreach($array as $key => $elem) {
-			// For each section.
-				$content .= '['.$key."]\n";
-				foreach($elem as $key2 => $elem2) {
-				// For each item.
-					if(is_array($elem2)) {
-						for($i=0; $i<count($elem2); $i++) {
-							$content .= $key2.'[] = "'.$elem2[$i]."\"\n";
-						}
-					} else if($elem2 == '') {
-						$content .= $key2." = \n";
-					} else {
-						$content .= $key2.' = "'.$elem2."\"\n";
-					}
-				}
-			}
-		} else {
-			foreach($array as $key => $elem) {
-			// For each item.
-				if(is_array($elem)) {
-					for($i=0; $i<count($elem); $i++) {
-						$content .= $key.'[] = "'.$elem[$i]."\"\n";
-					}
-				} else if($elem == '') {
-					$content .= $key." = \n";
-				} else {
-					$content .= $key.' = "'.$elem."\"\n";
-				}
-			}
-		}
-		if(!$handle = fopen(self::INSTALLATION_FILE, 'w')) {
-			return false;
-		}
-		if(!fwrite($handle, $content)) {
-			return false;
-		}
-		fclose($handle);
-		return true;
+		writeInstallationFile(self::INSTALLATION_FILE, $array);
 	}
 }
 

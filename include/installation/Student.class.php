@@ -70,6 +70,13 @@ class Student {
 	}
 
 	/**
+	 * @return The first name of the student.
+	 */
+	public function getFirstName() {
+		return $this->firstName;
+	}
+
+	/**
 	 * @return The last name of the student.
 	 */
 	public function getLastName() {
