@@ -47,7 +47,7 @@ class StudentsManager {
 	 */
 	public static function saveStudents($students) {
 		$db = self::connect();
-		$query = $db->prepare('INSERT INTO students(student_id, first_name, last_name, groupe, mail, department, year, login) VALUES(?, ?, ?, ?, ?, ?, ?, ?);');
+		$query = $db->prepare('INSERT INTO students(student_id, first_name, last_name, groupe, mail, department, year, login, gender, room, picture, photo_changed) VALUES(?, ?, ?, ?, ?, ?, ?, ?, '', '', 0, 0);');
 		foreach($students as $student) {
 			$query->execute($student->getSQLInsertParameters());
 		}
