@@ -1,93 +1,120 @@
 <?php
+/**
+ * Copyright (c) 2014 Paul Chaignon <paul.chaignon@gmail.com>
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a
+ * copy of this software and associated documentation files (the
+ * "Software"), to deal in the Software without restriction, including
+ * without limitation the rights to use, copy, modify, merge, publish,
+ * distribute, distribute with modifications, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included
+ * in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+ * IN NO EVENT SHALL THE ABOVE COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+ * DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+ * OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR
+ * THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ *
+ * Except as contained in this notice, the name(s) of the above copyright
+ * holders shall not be used in advertising or otherwise to promote the
+ * sale, use or other dealings in this Software without prior written
+ * authorization.
+ */
 
-	require('../include/sqlite.php');
-	$db = connect_db('../data/insannu.db');
+require('../include/sqlite.php');
+$db = connect_db('../data/insannu.db');
+
+if(isset($_POST['name']) && isset($_POST['login']) && isset($_POST['room']) && isset($_POST['year']) && isset($_POST['department']) && isset($_POST['gender'])) {
 	
-	if(isset($_POST['name']) && isset($_POST['login']) && isset($_POST['room']) && isset($_POST['year']) && isset($_POST['department']) && isset($_POST['gender'])) {
-		
-		// Creates the SQL request:
-		$sql_query = '';
-		$params = array();
-		$equivalence = '';
-		$order_by = '';
-		if($_POST['name']!='') {
-			$_POST['name'] = str_replace(array('é', 'è', 'à', 'ë', 'ê', 'ï', 'î'), array('e', 'e', 'a', 'e', 'e', 'i', 'i'), $_POST['name']);
-			$names = explode(' ', $_POST['name']);
-			foreach($names as $name) {
-				$sql_query .= " AND (first_name LIKE ? OR last_name LIKE ?)";
-				array_push($params, "%".$name."%", "%".$name."%"); 
-			}
-			$equivalence .= $_POST['name'].'+';
+	// Creates the SQL request:
+	$sql_query = '';
+	$params = array();
+	$equivalence = '';
+	$order_by = '';
+	if($_POST['name']!='') {
+		$_POST['name'] = str_replace(array('é', 'è', 'à', 'ë', 'ê', 'ï', 'î'), array('e', 'e', 'a', 'e', 'e', 'i', 'i'), $_POST['name']);
+		$names = explode(' ', $_POST['name']);
+		foreach($names as $name) {
+			$sql_query .= " AND (first_name LIKE ? OR last_name LIKE ?)";
+			array_push($params, "%".$name."%", "%".$name."%"); 
 		}
-		if($_POST['login']!='') {
-			$sql_query .= " AND login LIKE ?";
-			$params[] = "%".$_POST['login']."%";
-			$equivalence .= $_POST['login'].'+';
+		$equivalence .= $_POST['name'].'+';
+	}
+	if($_POST['login']!='') {
+		$sql_query .= " AND login LIKE ?";
+		$params[] = "%".$_POST['login']."%";
+		$equivalence .= $_POST['login'].'+';
+	}
+	if($_POST['room']!='') {
+		if(substr($_POST['room'], 0, 2)=='bn') {
+			$bnc = substr($_POST['room'], 0, 2).'c'.substr($_POST['room'], 2);
+			$bns = substr($_POST['room'], 0, 2).'s'.substr($_POST['room'], 2);
+			$bnn = substr($_POST['room'], 0, 2).'n'.substr($_POST['room'], 2);
+			$sql_query = " AND (room LIKE ? OR room LIKE ? OR room LIKE ?)";
+			array_push($params, "%".$bnc."%", "%".$bns."%", "%".$bnn."%");
+		} else {
+			$sql_query .= " AND room LIKE ?";
+			$params[] = "%".$_POST['room']."%";
 		}
-		if($_POST['room']!='') {
-			if(substr($_POST['room'], 0, 2)=='bn') {
-				$bnc = substr($_POST['room'], 0, 2).'c'.substr($_POST['room'], 2);
-				$bns = substr($_POST['room'], 0, 2).'s'.substr($_POST['room'], 2);
-				$bnn = substr($_POST['room'], 0, 2).'n'.substr($_POST['room'], 2);
-				$sql_query = " AND (room LIKE ? OR room LIKE ? OR room LIKE ?)";
-				array_push($params, "%".$bnc."%", "%".$bns."%", "%".$bnn."%");
-			} else {
-				$sql_query .= " AND room LIKE ?";
-				$params[] = "%".$_POST['room']."%";
-			}
-			$equivalence .= $_POST['room'].'+';
-			$order_by = "room, ";
-		}
-		if($_POST['gender']!='') {
-			$sql_query .= " AND gender LIKE ?";
-			$params[] = $_POST['gender'];
-			$equivalence .= ($_POST['gender']=='male')? 'gars+' : 'fille+';
-		}
-		if($_POST['year']!='' && $_POST['department']!='' && isset($_POST['groupe']) && $_POST['groupe']!='') {
-			$sql_query .= "AND year = ? AND department = ? AND groupe = ?";
-			array_push($params, $_POST['year'], $_POST['department'], $_POST['groupe']);
-			if($_POST['department']=='STPI') {
-				$equivalence .= $_POST['year'].$_POST['groupe'].'+';
-			} else {
-				$equivalence .= $_POST['year'].$_POST['groupe'].'+'.$_POST['department'].'+';
-			}
-		} elseif($_POST['year']!='' && isset($_POST['groupe']) && $_POST['groupe']!='') {
-			$sql_query .= "AND year = ? AND groupe = ?";
-			array_push($params, $_POST['year'], $_POST['groupe']);
+		$equivalence .= $_POST['room'].'+';
+		$order_by = "room, ";
+	}
+	if($_POST['gender']!='') {
+		$sql_query .= " AND gender LIKE ?";
+		$params[] = $_POST['gender'];
+		$equivalence .= ($_POST['gender']=='male')? 'gars+' : 'fille+';
+	}
+	if($_POST['year']!='' && $_POST['department']!='' && isset($_POST['groupe']) && $_POST['groupe']!='') {
+		$sql_query .= "AND year = ? AND department = ? AND groupe = ?";
+		array_push($params, $_POST['year'], $_POST['department'], $_POST['groupe']);
+		if($_POST['department']=='STPI') {
 			$equivalence .= $_POST['year'].$_POST['groupe'].'+';
-		} elseif($_POST['department']!='' && isset($_POST['groupe']) && $_POST['groupe']!='') {
-			$sql_query .= "AND department = ? AND groupe = ?";
-			array_push($params, $_POST['department'], $_POST['groupe']);
-			if($_POST['department']=='STPI') {
-				$equivalence .= 'STPI-'.$_POST['groupe'].'+';
-			} else {
-				$equivalence = '';
-			}
-		} elseif($_POST['year']!='' && $_POST['department']!='') {
-			$sql_query .= " AND year = ? AND department = ?";
-			array_push($params, $_POST['year'], $_POST['department']);
-			$equivalence .= $_POST['year'].$_POST['department'].'+';
-		} elseif($_POST['year']!='') {
-			$sql_query .= " AND year = ?";
-			$params[] = $_POST['year'];
-			$equivalence .= $_POST['year'].'AN+';
-		} elseif($_POST['department']!='') {
-			$sql_query .= " AND department = ?";
-			$params[] = $_POST['department'];
-			$equivalence .= $_POST['department'].'+';
+		} else {
+			$equivalence .= $_POST['year'].$_POST['groupe'].'+'.$_POST['department'].'+';
 		}
-		$sql_query = ltrim($sql_query, ' AND'); // Deletes the first AND.
-		
-		// Executes the request on the database:
-		if($sql_query!='') {
-			try {
-				$query = $db->prepare("SELECT * FROM students WHERE ".$sql_query." ORDER BY ".$order_by."last_name, first_name, student_id;");    
-				$query->execute($params);
-			} catch (Exception $e) {
-				exit('Error : '.$e->getMessage());
-			}
+	} elseif($_POST['year']!='' && isset($_POST['groupe']) && $_POST['groupe']!='') {
+		$sql_query .= "AND year = ? AND groupe = ?";
+		array_push($params, $_POST['year'], $_POST['groupe']);
+		$equivalence .= $_POST['year'].$_POST['groupe'].'+';
+	} elseif($_POST['department']!='' && isset($_POST['groupe']) && $_POST['groupe']!='') {
+		$sql_query .= "AND department = ? AND groupe = ?";
+		array_push($params, $_POST['department'], $_POST['groupe']);
+		if($_POST['department']=='STPI') {
+			$equivalence .= 'STPI-'.$_POST['groupe'].'+';
+		} else {
+			$equivalence = '';
+		}
+	} elseif($_POST['year']!='' && $_POST['department']!='') {
+		$sql_query .= " AND year = ? AND department = ?";
+		array_push($params, $_POST['year'], $_POST['department']);
+		$equivalence .= $_POST['year'].$_POST['department'].'+';
+	} elseif($_POST['year']!='') {
+		$sql_query .= " AND year = ?";
+		$params[] = $_POST['year'];
+		$equivalence .= $_POST['year'].'AN+';
+	} elseif($_POST['department']!='') {
+		$sql_query .= " AND department = ?";
+		$params[] = $_POST['department'];
+		$equivalence .= $_POST['department'].'+';
+	}
+	$sql_query = ltrim($sql_query, ' AND'); // Deletes the first AND.
+	
+	// Executes the request on the database:
+	if($sql_query!='') {
+		try {
+			$query = $db->prepare("SELECT * FROM students WHERE ".$sql_query." ORDER BY ".$order_by."last_name, first_name, student_id;");    
+			$query->execute($params);
+		} catch (Exception $e) {
+			exit('Error : '.$e->getMessage());
 		}
 	}
+}
 	
 ?>
 <!DOCTYPE html>
