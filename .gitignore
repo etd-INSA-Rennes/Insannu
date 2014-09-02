@@ -4,3 +4,4 @@ www/photos_uploaded/
 PHPMailer/
 *.db
 data/
+scripts/conf.php
