@@ -36,7 +36,7 @@
           <div class="panel panel-default animated fadeInUp" style="-moz-animation-delay: {{ item }}s;">
             <div class="panel-body">
               <div class="pull-left">
-                <img class="profile" src="http://ent.insa-rennes.fr/AnnuaireENT/images/photos/22234.jpg" alt="">
+                <img height="137" class="profile" src="/bucket/{{ student.picture }}.jpg" alt="">
               </div>
               <div class="pull-left" ng-init="full=false; name = student.first_name + ' ' + student.last_name">
                 <h3 ng-show="name.length < 22 || full">{{ name }}</h3>

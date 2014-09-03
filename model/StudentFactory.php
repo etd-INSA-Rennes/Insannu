@@ -30,7 +30,7 @@ class StudentFactory {
       else if (preg_match('/^([1-5]{1})(stpi|info|gcu|gma|sgm|eii|src|arom)$/i', $keyword, $res)) {
         $year = $res[1];
         $depart = $res[2];
-        $sql .= "AND groupe LIKE ? AND department LIKE ? ";
+        $sql .= "AND year LIKE ? AND department LIKE ? ";
         $params[] = $res[1]; $params[] = $res[2];
         error_log("Match a class : ".$keyword); 
       } 
@@ -43,6 +43,8 @@ class StudentFactory {
         error_log("Match a name : ".$keyword);
       }
     }
+
+    $sql .= "COLLATE NOCASE";
 
     $req = $app['db']->executeQuery($sql, $params);
     $this->loadFromDB($req->fetchAll());

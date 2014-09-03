@@ -16,6 +16,7 @@ class Student implements JsonSerializable {
   private $groupe;
   private $login;
   private $photoChanged;
+  private $tags;
   /**
    * * Constructor
    * * @param studentID The student's ID as defined in the LDAP server.
@@ -34,7 +35,7 @@ class Student implements JsonSerializable {
   public function Student() {
   }
   
-  public function loadFromNothing($studentID, $firstName, $lastName, $groupe, $mail, $department, $year, $login, $picture = false, $room = '', $gender = '', $photoChanged = false) {
+  public function loadFromNothing($studentID, $firstName, $lastName, $groupe, $mail, $department, $year, $login, $picture = false, $room = '', $gender = '', $photoChanged = false, $tags = '') {
     $this->studentID = $studentID;
     $this->firstName = $firstName;
     $this->lastName = $lastName;
@@ -47,6 +48,7 @@ class Student implements JsonSerializable {
     $this->room = $room;
     $this->gender = $gender;
     $this->photoChanged = $photoChanged;
+    $this->tags = $tags;
   }
 
   /**
@@ -114,9 +116,8 @@ class Student implements JsonSerializable {
    * * and updates the photoChanged parameter.
    * * @param photoChanged True if the student changed his photo.
    * */
-  public function setPicture($photoChanged) {
-    $this->picture = 1;
-    $this->photoChanged = $photoChanged;
+  public function setPicture($path) {
+    $this->picture = $path;
   }
   /**
    * * Sets the gender of the student.
@@ -137,19 +138,22 @@ class Student implements JsonSerializable {
     }
   }
 
+  public function setTags($tags) {
+    $this->tags = $tags;
+  }
+
   public function jsonSerialize() {
     return [
-      'student_id' => $this->studentID,
       'first_name' => $this->firstName,
       'last_name' => $this->lastName,
       'groupe' => $this->groupe,
       'mail' => $this->mail,
       'department' => $this->department,
       'year' => $this->year,
-      'login' => $this->login,
       'picture' => $this->picture,
       'room' => $this->room,
-      'gender' => $this->gender
+      'gender' => $this->gender,
+      'tags' => $this->tags
     ];
   }
 
@@ -165,6 +169,7 @@ class Student implements JsonSerializable {
     $this->picture = $userDB['picture'];
     $this->room = $userDB['room'];
     $this->gender = $userDB['gender'];
+    $this->tags = $userDB['tags'];
   }
 
   public static function initDb() {
@@ -181,13 +186,15 @@ class Student implements JsonSerializable {
       department TEXT,
       room TEXT,
       picture TEXT,
-      gender TEXT 
+      gender TEXT,
+      tags TEXT 
     );");
   }
 
 
-  public function getByEmail($email) {
-    $req = $app['db']->executeQuery('SELECT * FROM students WHERE email=?', array($email));
+  public function loadByEmail($email) {
+    $app = Main::getInstance()->getApp();
+    $req = $app['db']->executeQuery('SELECT * FROM students WHERE mail=? COLLATE NOCASE', array($email));
     $userDB = $req->fetch();
     $this->loadFromDB($userDB);
   }
@@ -205,7 +212,8 @@ class Student implements JsonSerializable {
       :department,
       :room,
       :picture,
-      :gender
+      :gender,
+      :tags
     )');
 
     $req->bindValue("student_id",$this->studentID);
@@ -219,6 +227,7 @@ class Student implements JsonSerializable {
     $req->bindValue("room",$this->room);
     $req->bindValue("picture",$this->picture);
     $req->bindValue("gender",$this->gender);
+    $req->bindValue("tags",$this->tags);
 
     error_log("Adding ".$this->login,0);
 

@@ -3,6 +3,7 @@ require_once __DIR__.'/../vendor/autoload.php';
 require_once __DIR__.'/../model/Student.php'; 
 require_once __DIR__.'/../model/StudentFactory.php'; 
 require_once __DIR__.'/../connector/LDAP.php'; 
+require_once __DIR__.'/../connector/ENT.php'; 
 
 class Main {
   private static $instance;
@@ -45,7 +46,13 @@ class Main {
       $ldap = LDAP::getInstance();
       $ldap->getStudents();
       return "OK";
-    });  
+    });
+
+    $app->get('/admin/populate-ent', function() use($app) {
+      $ent = ENT::getInstance();
+      $ent->parseFile();
+     return "OK"; 
+    }); 
     
     $app->get('/random', function() use($app) { 
       return "OK";
