@@ -1,9 +1,0 @@
-<?php
-class Conf {
-  public static $ip = '0.0.0.0';
-  public static $user = 'john';
-  public static $pass = 's3cr3t';
-  public static $base = 'o=My Company, c=US';
-  public static $page = 100;
-}
-?>

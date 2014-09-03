@@ -1,8 +1,2 @@
-www/photos/
-www/photos_uploaded/
-*.jpg
-PHPMailer/
-*.db
-data/
-scripts/conf.php
-scripts/*.txt
+vendor
+.git
