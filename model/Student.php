@@ -134,6 +134,20 @@ class Student {
     }
   }
 
+  private function loadUser($userDB) {
+    $this->studentID = $userDB['student_id'];
+    $this->firstName = $userDB['first_name'];
+    $this->lastName = $userDB['last_name'];
+    $this->groupe = $userDB['groupe'];
+    $this->mail = $userDB['mail'];
+    $this->department = $userDB['department'];
+    $this->year = $userDB['year'];
+    $this->login = $userDB['login'];
+    $this->picture = $userDB['picture'];
+    $this->room = $userDB['room'];
+    $this->gender = $userDB['gender'];
+  }
+
   public static function initDb() {
     $app = Main::getInstance()->getApp();
     $app['db']->executeUpdate("DROP TABLE IF EXISTS students;");
@@ -143,12 +157,20 @@ class Student {
       first_name TEXT,
       last_name TEXT,
       groupe TEXT,
-      mail TEXT,
+      year TEXT,
+      mail TEXT UNIQUE,
       department TEXT,
       room TEXT,
       picture TEXT,
       gender TEXT 
     );");
+  }
+
+
+  public function getByEmail($email) {
+    $req = $app['db']->executeQuery('SELECT * FROM students WHERE email=?', array($email));
+    $userDB = $req->fetch();
+    $this->loadUser($userDB);
   }
 
   public function save() {
@@ -158,6 +180,7 @@ class Student {
       :login,
       :first_name,
       :last_name,
+      :groupe,
       :year,
       :mail,
       :department,
@@ -170,6 +193,7 @@ class Student {
     $req->bindValue("login",$this->login);
     $req->bindValue("first_name",$this->firstName);
     $req->bindValue("last_name",$this->lastName);
+    $req->bindValue("groupe",$this->groupe);
     $req->bindValue("year",$this->year);
     $req->bindValue("mail",$this->mail);
     $req->bindValue("department",$this->department);

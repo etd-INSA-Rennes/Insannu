@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app>
+<html ng-app="insannu">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +10,7 @@
     <link href="css/custom.css" rel="stylesheet">
   </head>
 
-  <body>
+  <body ng-controller="SearchController">
     <div class="jumbotron">
       <div class="container">
         <div class="row">
@@ -19,7 +19,7 @@
             <form role="form">
               <div class="form-group">
                 <div class="input-group">
-                  <input type="text" class="form-control" id="search" placeholder="Justin Bieber, Kevin, 2STPI, GMA...">
+                  <input type="text" class="form-control" ng-model-options="{debounce: {'default': 400, 'blur': 800}}" ng-model="search" placeholder="Justin Bieber, Kevin, 2STPI, GMA...">
                   <span class="input-group-addon">
                     <span class="glyphicon glyphicon-search"></span>
                   </span>
@@ -32,15 +32,19 @@
     </div>
     <div class="container">
       <div class="row">
-        <div class="col-lg-4" ng-repeat="item in [0,1,2,3,4,5]">
+        <div class="col-lg-6" ng-repeat="student in students">
           <div class="panel panel-default animated fadeInUp" style="-moz-animation-delay: {{ item }}s;">
             <div class="panel-body">
               <div class="pull-left">
                 <img class="profile" src="http://ent.insa-rennes.fr/AnnuaireENT/images/photos/22234.jpg" alt="">
               </div>
-              <div class="pull-left">
-                <h3>Léon Dupont</h3>
-                <p>3GMA - A203</p>
+              <div class="pull-left" ng-init="full=false; name = student.first_name + ' ' + student.last_name">
+                <h3 ng-show="name.length < 22 || full">{{ name }}</h3>
+                <h3 ng-hide="name.length < 22 || full" tooltip="{{name}}">{{ name | limitTo: 20 }}<a href="" ng-click="full=true">...</a></h3>
+                <p>
+                  <span class="label label-primary">{{ student.year + student.department}}</span>
+                  <span class="label label-success">{{student.room}}</span>
+                </p>
                 <p>
                   <a href="#" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-envelope"></span> mail</a>
                 </p>
@@ -51,6 +55,7 @@
       </div>
     </div>
     <script src="js/angular.min.js" ></script>
+    <script src="js/angular-resource.min.js" ></script>
     <script src="js/custom.js" ></script>
   </body>
 </html>

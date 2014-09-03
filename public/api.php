@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__.'/../vendor/autoload.php'; 
 require_once __DIR__.'/../model/Student.php'; 
+require_once __DIR__.'/../model/StudentFactory.php'; 
 require_once __DIR__.'/../connector/LDAP.php'; 
 
 class Main {
@@ -50,6 +51,11 @@ class Main {
       return "OK";
     }); 
 
+    $app->get('/search/{keywords}', function($keywords) use ($app) {
+      $sf = new StudentFactory(); 
+      $sf->search($keywords);
+      return $sf->getJSON();
+    });
   }
 
 }
