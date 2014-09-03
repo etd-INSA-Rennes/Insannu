@@ -7,7 +7,7 @@
  * @author Quentin Dufour <quentin@deuxfleurs.fr>
  */
 
-require_once('Student.class.php');
+require_once('../model/Student.php');
 class LDAP {
   const SERVER = 'ldap.insa-rennes.fr';
   const PORT = 389;
@@ -94,13 +94,11 @@ class LDAP {
       } else if(strlen($promotion) == 2) {
         $department = 'STPI';
         $year = $promotion[0];
-        $groupe = $result['insagroupeetu'][0];
-        $class = strtoupper($groupe[strlen($groupe)-1]);
       } else if(strlen($promotion) > 3) {
         $department = substr($promotion, 1);
         $year = $promotion[0];
       }
-      $students[] = new Student($studentID, $firstName, $lastName, $class, $mail, $department, $year, $login);
+      (new Student($studentID, $firstName, $lastName, $class, $mail, $department, $year, $login))->save();
     }
     return $students;
   }

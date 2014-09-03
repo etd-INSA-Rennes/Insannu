@@ -1,0 +1,56 @@
+<!doctype html>
+<html ng-app>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>INSANNU</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="jumbotron">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h1 class="animated">INSANNU</h1>
+            <form role="form">
+              <div class="form-group">
+                <div class="input-group">
+                  <input type="text" class="form-control" id="search" placeholder="Justin Bieber, Kevin, 2STPI, GMA...">
+                  <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-search"></span>
+                  </span>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4" ng-repeat="item in [0,1,2,3,4,5]">
+          <div class="panel panel-default animated fadeInUp" style="-moz-animation-delay: {{ item }}s;">
+            <div class="panel-body">
+              <div class="pull-left">
+                <img class="profile" src="http://ent.insa-rennes.fr/AnnuaireENT/images/photos/22234.jpg" alt="">
+              </div>
+              <div class="pull-left">
+                <h3>Léon Dupont</h3>
+                <p>3GMA - A203</p>
+                <p>
+                  <a href="#" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-envelope"></span> mail</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/angular.min.js" ></script>
+    <script src="js/custom.js" ></script>
+  </body>
+</html>
