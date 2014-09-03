@@ -172,7 +172,7 @@ function search($db, $input) {
 	// Executes the request on the database:
 	try {
 		$order_by = $room? 'room, ' : '';
-		$fields = 'student_id, last_name, first_name, department, year, room, picture, gender, mail, groupe';
+		$fields = 'student_id, last_name, first_name, department, year, room, picture, gender, mail, tags, description';
 		$query = $db->prepare('SELECT '.$fields.' FROM students WHERE '.$sql_query.' ORDER BY '.$order_by.'last_name, first_name;');
 		$query->execute($params);
 	} catch(Exception $e) {

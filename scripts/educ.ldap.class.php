@@ -1,6 +1,9 @@
 #!/usr/bin/php
 <?php
-include 'conf.php';
+include 'conf.class.php';
+include '../include/sqlite.php';
+
+$db = connect_db('../data/insannu.db');
 
 echo "Populate Database\n===============\n\n";
 echo "Connecting to ".Conf::$ip."...\n";
@@ -31,6 +34,12 @@ if ($ds) {
     echo "Reading entries...\n";
     $info = ldap_get_entries($ds, $sr);
 
+    $stmt = $db->prepare("INSERT INTO students (login, last_name, description, tags) VALUES (?,?,?,?)");
+    $stmt->bindParam(1, $login);
+    $stmt->bindParam(2, $displayName);
+    $stmt->bindParam(3, $description);
+    $stmt->bindParam(4, $tags);
+    
     for ($i=0; $i<$info["count"]; $i++) {
       $login = utf8_encode($info[$i]["name"][0]);
       $displayName = utf8_encode($info[$i]["displayname"][0]);
@@ -38,12 +47,16 @@ if ($ds) {
       $memberOf = (isset($info[$i]["memberof"])) ? $info[$i]["memberof"] : [];
       $tags = get_tags($memberOf);
 
+      if (substr($description,0,15) == "Eleve ingenieur") { $description = "Eleve ingenieur"; }
+
       echo "---------------\n";
       echo "Login : " . $login . "\n";
       echo "Display name : " . $displayName . "\n";
       echo "Description : " . $description . "\n";
       echo "Tags : " . $tags . "\n";
       echo "---------------\n\n";
+
+      $stmt->execute();
 
     }
     ldap_control_paged_result_response($ds, $sr, $cookie);

@@ -5,3 +5,4 @@ PHPMailer/
 *.db
 data/
 scripts/conf.php
+scripts/*.txt
