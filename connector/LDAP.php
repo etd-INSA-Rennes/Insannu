@@ -98,7 +98,9 @@ class LDAP {
         $department = substr($promotion, 1);
         $year = $promotion[0];
       }
-      (new Student($studentID, $firstName, $lastName, $class, $mail, $department, $year, $login))->save();
+      $s = new Student();
+      $s->loadFromNothing($studentID, $firstName, $lastName, $class, $mail, $department, $year, $login);
+      $s->save();
     }
     return $students;
   }

@@ -45,7 +45,15 @@ class StudentFactory {
     }
 
     $req = $app['db']->executeQuery($sql, $params);
-    $this->list = $req->fetchAll();
+    $this->loadFromDB($req->fetchAll());
+  }
+
+  private function loadFromDB($pl) {
+    foreach ($pl as $u) {
+      $s = new Student();
+      $s->loadFromDB($u);
+      $this->list[] = $s;
+    }
   }
 
   public function getJSON() {

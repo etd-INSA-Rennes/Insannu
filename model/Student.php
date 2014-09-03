@@ -3,7 +3,7 @@
  * * The Student class to store information about a student.
  * * @author Paul Chaignon <paul.chaignon@gmail.com>
  * */
-class Student {
+class Student implements JsonSerializable {
   private $firstName;
   private $lastName;
   private $studentID;
@@ -31,7 +31,10 @@ class Student {
    * * @param gender The gender. Default value is ''.
    * * @param photoChanged True if the student changed his photo. Default value is false.
    * */
-  public function Student($studentID, $firstName, $lastName, $groupe, $mail, $department, $year, $login, $picture = false, $room = '', $gender = '', $photoChanged = false) {
+  public function Student() {
+  }
+  
+  public function loadFromNothing($studentID, $firstName, $lastName, $groupe, $mail, $department, $year, $login, $picture = false, $room = '', $gender = '', $photoChanged = false) {
     $this->studentID = $studentID;
     $this->firstName = $firstName;
     $this->lastName = $lastName;
@@ -134,7 +137,23 @@ class Student {
     }
   }
 
-  private function loadUser($userDB) {
+  public function jsonSerialize() {
+    return [
+      'student_id' => $this->studentID,
+      'first_name' => $this->firstName,
+      'last_name' => $this->lastName,
+      'groupe' => $this->groupe,
+      'mail' => $this->mail,
+      'department' => $this->department,
+      'year' => $this->year,
+      'login' => $this->login,
+      'picture' => $this->picture,
+      'room' => $this->room,
+      'gender' => $this->gender
+    ];
+  }
+
+  public function loadFromDB($userDB) {
     $this->studentID = $userDB['student_id'];
     $this->firstName = $userDB['first_name'];
     $this->lastName = $userDB['last_name'];
@@ -170,7 +189,7 @@ class Student {
   public function getByEmail($email) {
     $req = $app['db']->executeQuery('SELECT * FROM students WHERE email=?', array($email));
     $userDB = $req->fetch();
-    $this->loadUser($userDB);
+    $this->loadFromDB($userDB);
   }
 
   public function save() {
