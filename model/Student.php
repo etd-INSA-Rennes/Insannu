@@ -17,6 +17,7 @@ class Student implements JsonSerializable {
   private $login;
   private $photoChanged;
   private $tags;
+  private $fbId;
   /**
    * * Constructor
    * * @param studentID The student's ID as defined in the LDAP server.
@@ -35,7 +36,7 @@ class Student implements JsonSerializable {
   public function Student() {
   }
   
-  public function loadFromNothing($studentID, $firstName, $lastName, $groupe, $mail, $department, $year, $login, $picture = false, $room = '', $gender = '', $photoChanged = false, $tags = '') {
+  public function loadFromNothing($studentID, $firstName, $lastName, $groupe, $mail, $department, $year, $login, $picture = false, $room = '', $gender = '', $photoChanged = false, $tags = '', $fbId = '') {
     $this->studentID = $studentID;
     $this->firstName = $firstName;
     $this->lastName = $lastName;
@@ -49,6 +50,7 @@ class Student implements JsonSerializable {
     $this->gender = $gender;
     $this->photoChanged = $photoChanged;
     $this->tags = $tags;
+    $this->fbId = $fbId;
   }
 
   /**
@@ -153,7 +155,8 @@ class Student implements JsonSerializable {
       'picture' => $this->picture,
       'room' => $this->room,
       'gender' => $this->gender,
-      'tags' => $this->tags
+      'tags' => $this->tags,
+      'fb_id' => $this->fbId
     ];
   }
 
@@ -170,6 +173,7 @@ class Student implements JsonSerializable {
     $this->room = $userDB['room'];
     $this->gender = $userDB['gender'];
     $this->tags = $userDB['tags'];
+    $this->fbId = $userDB['fb_id'];
   }
 
   public static function initDb() {
@@ -187,7 +191,8 @@ class Student implements JsonSerializable {
       room TEXT,
       picture TEXT,
       gender TEXT,
-      tags TEXT 
+      tags TEXT,
+      fb_id TEXT UNIQUE 
     );");
   }
 
@@ -196,7 +201,24 @@ class Student implements JsonSerializable {
     $app = Main::getInstance()->getApp();
     $req = $app['db']->executeQuery('SELECT * FROM students WHERE mail=? COLLATE NOCASE', array($email));
     $userDB = $req->fetch();
-    $this->loadFromDB($userDB);
+    if (count($userDB)>0) {
+      $this->loadFromDB($userDB);
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  public function loadByName($first_name, $last_name) {
+    $app = Main::getInstance()->getApp();
+    $req = $app['db']->executeQuery('SELECT * FROM students WHERE first_name=? AND last_name=? COLLATE NOCASE', array($first_name, $last_name));
+    if (count($userDB)>0) {
+      $this->loadFromDB($userDB);
+      return true;
+    } else {
+      return false;
+    }
+
   }
 
   public function save() {
@@ -213,7 +235,8 @@ class Student implements JsonSerializable {
       :room,
       :picture,
       :gender,
-      :tags
+      :tags,
+      :fb_id
     )');
 
     $req->bindValue("student_id",$this->studentID);
@@ -228,6 +251,7 @@ class Student implements JsonSerializable {
     $req->bindValue("picture",$this->picture);
     $req->bindValue("gender",$this->gender);
     $req->bindValue("tags",$this->tags);
+    $req->bindValue("fb_id",$this->tags);
 
     error_log("Adding ".$this->login,0);
 

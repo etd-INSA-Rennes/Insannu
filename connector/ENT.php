@@ -32,11 +32,16 @@ class ENT {
             $fp = fopen(__DIR__.'/../public/bucket/'.$filename.'.jpg', 'w');
             fwrite($fp,$profile);
             $s = new Student();
-            $s->loadByEmail($email);
-            error_log("Adding a picture for ".$s->getLastName(),0);
-            $s->setPicture($filename);
-            $s->save();
+            if ($s->loadByEmail($email)) {
+              error_log("Adding a picture for ".$s->getLastName(),0);
+              $s->setPicture($filename);
+              $s->save();
+            } else {
+              error_log("No user found for ".$s->getLastName(),0);
+            }
           }
+        } else {
+          error_log("Skip ".$s->getLastName(),0);
         }
       }
     }

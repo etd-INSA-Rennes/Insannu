@@ -7,5 +7,9 @@ angular.module('insannu', ['ngResource'])
         console.log('Found');
       });
     });
+
+    $scope.setSearch = function(val) {
+      $scope.search = val;
+    };
   }])
 ;

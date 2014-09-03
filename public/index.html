@@ -32,21 +32,33 @@
     </div>
     <div class="container">
       <div class="row">
+        <div ng-show="search.length > 0" class="col-lg-12">
+          <div class="panel panel-default animated" ng-class="{fadeInUp: students.length > 1, fadeOutUp: students.length < 2}">
+            <div class="panel-body">
+              <span style="margin-bottom:0px" class="lead pull-left">{{ students.length }} personnes</span>
+              <a href="" class="btn btn-default btn-sm pull-right">email</a>
+            </div>
+          </div>
+        </div>
         <div class="col-lg-6" ng-repeat="student in students">
-          <div class="panel panel-default animated fadeInUp" style="-moz-animation-delay: {{ item }}s;">
+          <div class="panel panel-default animated fadeInUp" style="-moz-animation-delay: {{ item }}s;-webkit-animation-delay: {{ item }}s;">
             <div class="panel-body">
               <div class="pull-left">
-                <img height="137" class="profile" src="/bucket/{{ student.picture }}.jpg" alt="">
+                <img ng-show="student.picture != ''" height="137" class="profile" src="/bucket/{{ student.picture }}.jpg" alt="">
+                <img ng-show="student.picture == '' && student.fb_id == ''" height="137" class="profile" src="/img/default.jpg" alt="">
               </div>
               <div class="pull-left" ng-init="full=false; name = student.first_name + ' ' + student.last_name">
                 <h3 ng-show="name.length < 22 || full">{{ name }}</h3>
                 <h3 ng-hide="name.length < 22 || full" tooltip="{{name}}">{{ name | limitTo: 20 }}<a href="" ng-click="full=true">...</a></h3>
                 <p>
-                  <span class="label label-primary">{{ student.year + student.department}}</span>
-                  <span class="label label-success">{{student.room}}</span>
+                  <span class="label label-danger">{{student.gender}}</span>
+                  <span class="label label-success"><a href="" ng-click="setSearch(student.year+student.department)">{{ student.year + student.department}}</a></span>
+                  <span class="label label-warning">{{student.room}}</span>
+                  <span class="label label-info">{{student.tags}}</span>
                 </p>
                 <p>
                   <a href="mailto:{{ student.mail }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-envelope"></span> <small>{{ student.mail }}</small></a>
+                  <a ng-show="student.fb_id != ''" href="https://www.facebook.com/{{student.fb_id}}" class="btn btn-primary btn-xs"><small>Facebook</small></a>
                 </p>
               </div>
             </div>
