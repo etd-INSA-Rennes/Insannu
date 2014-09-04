@@ -61,14 +61,18 @@ class Main {
      return "OK"; 
     }); 
     
-    $app->get('/random', function() use($app) { 
-      return "OK";
-    }); 
+    $app->get('/search', function() use ($app) {
+      return "[]";
+    });
 
     $app->get('/search/{keywords}', function($keywords) use ($app) {
-      $sf = new StudentFactory(); 
-      $sf->search($keywords);
-      return $sf->getJSON();
+      if (strlen($keywords)>2) {
+        $sf = new StudentFactory(); 
+        $sf->search($keywords);
+        return $sf->getJSON();
+      } else {
+        return "[]";
+      }
     });
   }
 

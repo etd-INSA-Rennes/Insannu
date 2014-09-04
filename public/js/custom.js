@@ -3,7 +3,11 @@ angular.module('insannu', ['ngResource'])
     var StudentsFactory = $resource('/api.php/search/:search');
 
     $scope.$watch('search', function() {
+      $scope.listEmail = "";
       $scope.students = StudentsFactory.query({search:$scope.search}, function() {
+        $scope.students.forEach(function(obj) {
+          $scope.listEmail += obj.mail + ", ";
+        });
         console.log('Found');
       });
     });
