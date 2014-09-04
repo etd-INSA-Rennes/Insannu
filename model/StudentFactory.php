@@ -27,7 +27,7 @@ class StudentFactory {
       } 
 
       //CLASS - like 2STPI
-      else if (preg_match('/^([1-5]{1})(stpi|info|gcu|gma|sgm|eii|src|arom)$/i', $keyword, $res)) {
+      else if (preg_match('/^([1-5]{1})(stpi|info|gcu|gma|sgm|eii|src|arom|doctorant)$/i', $keyword, $res)) {
         $year = $res[1];
         $depart = $res[2];
         $sql .= "AND year LIKE ? AND department LIKE ? ";
