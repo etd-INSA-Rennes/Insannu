@@ -27,11 +27,16 @@ class StudentFactory {
       } 
 
       //CLASS - like 2STPI
-      else if (preg_match('/^([1-5]{1})(stpi|info|gcu|gma|sgm|eii|src|arom|doctorant)$/i', $keyword, $res)) {
+      else if (preg_match('/^([1-5]{0,1})(stpi|info|gcu|gma|sgm|eii|src|arom|doctorant)$/i', $keyword, $res)) {
         $year = $res[1];
         $depart = $res[2];
-        $sql .= "AND year LIKE ? AND department LIKE ? ";
-        $params[] = $res[1]; $params[] = $res[2];
+        if ($year != '') {
+          $sql .= "AND year LIKE ? AND department LIKE ? ";
+          $params[] = $year; $params[] = $depart;
+        } else  {
+          $sql .= "AND department LIKE ?";
+          $params[] = $depart;
+        }
         error_log("Match a class : ".$keyword); 
       } 
 
