@@ -35,10 +35,50 @@
         <div class="col-lg-12 text-center" ng-hide="loaded">
           <img src="/img/loader.gif">
         </div>
+
+        <div class="col-lg-12" ng-hide="search.length > 0">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <!-- '3INFO','3SRC','3EII','3GMA','3GCU','3SGM','3GM','4INFO','4SRC','4EII','4GMA','4GCU','4SGM','5INFO','5SRC','5EII','5GMA','5GCU','5SGM','Doctorants' -->
+              <p>
+                <h3>Chercher par promo</h3>
+                <span ng-repeat="promoElem in ['STPI','INFO','SRC','EII','GMA','GCU','SGM','GM','Doctorant']">
+                  <span class="label label-success" >
+                    <a href="" ng-click="activated=!activated">{{ promoElem }}</a>
+                  </span>
+                  <span ng-show="activated && promoElem != 'STPI' && promoElem != 'Doctorant'">
+                    <span class="label label-warning">
+                      <a href="" ng-click="setSearch(promoElem)">Tous</a>
+                    </span>
+                    <span class="label label-warning" ng-repeat="annee in [3,4,5]">
+                      <a href="" ng-click="setSearch(annee+promoElem)">{{ annee + promoElem }}</a>
+                    </span>
+                  </span>
+                  <span ng-show="activated && promoElem == 'STPI'">
+                    <span class="label label-warning">
+                      <a href="" ng-click="setSearch(promoElem)">Tous</a>
+                    </span>
+                    <span class="label label-warning" ng-repeat="annee in [1,2]">
+                      <a href="" ng-click="setSearch(annee+promoElem)">{{ annee + promoElem }}</a>
+                    </span>
+                  </span>
+                  <span ng-show="activated && promoElem == 'Doctorant'">
+                    <span class="label label-warning">
+                      <a href="" ng-click="setSearch(promoElem)">Tous</a>
+                    </span>
+                  </span>
+                </span>
+
+              </p>
+            </div>
+          </div>
+        </div>
+
         <div ng-show="loaded && search.length > 1" class="col-lg-12">
           <div class="panel panel-default animated" ng-class="{fadeInUp: students.length > 1, fadeOutUp: students.length < 2}">
             <div class="panel-body">
-              <span style="margin-bottom:0px" class="lead pull-left">{{ students.length }} personnes</span>
+              <span style="margin-bottom:0px" class="lead pull-left">{{ students.length }} insaliens</span>
+              
               <a href="mailto:{{ listEmail }}" class="btn btn-default btn-sm pull-right">email</a>
             </div>
           </div>
