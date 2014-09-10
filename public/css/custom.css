@@ -10,3 +10,7 @@ padding: 0px 20px 0px 5px;
   color: #fff;
   text-decoration: none;
 }
+
+.no-top {
+  border-top: none;
+}

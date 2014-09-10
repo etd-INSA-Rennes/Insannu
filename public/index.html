@@ -15,7 +15,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center">
-            <h1 class="animated">INSANNU</h1>
+            <h1 class="animated" ng-click="setSearch('')">INSANNU</h1>
             <form role="form">
               <div class="form-group">
                 <div class="input-group">
@@ -37,11 +37,15 @@
         </div>
 
         <div class="col-lg-12" ng-hide="search.length > 0">
-          <div class="panel panel-default">
+          <ul class="nav nav-tabs" role="tablist" ng-init="page='Catégories'">
+            <li ng-repeat="pageElem in ['Catégories', 'Notes de version','Statistiques','API','A propos']" ng-class="{active: $parent.page==pageElem}">
+              <a href="#" ng-click="$parent.page=pageElem">{{ pageElem }}</a></li>
+          </ul>
+
+          <div class="panel panel-default no-top" ng-show="page=='Catégories'">
             <div class="panel-body">
-              <!-- '3INFO','3SRC','3EII','3GMA','3GCU','3SGM','3GM','4INFO','4SRC','4EII','4GMA','4GCU','4SGM','5INFO','5SRC','5EII','5GMA','5GCU','5SGM','Doctorants' -->
               <p>
-                <h3>Chercher par promo</h3>
+                <span class="label label-default">PROMO</span>
                 <span ng-repeat="promoElem in ['STPI','INFO','SRC','EII','GMA','GCU','SGM','GM','Doctorant']">
                   <span class="label label-success" >
                     <a href="" ng-click="activated=!activated">{{ promoElem }}</a>
@@ -68,49 +72,216 @@
                     </span>
                   </span>
                 </span>
-
               </p>
-            </div>
-          </div>
-        </div>
+              <p>
+                <span class="label label-default">RESIDENCE</span> <em>bientôt</em>
+              </p>
+              <p>
+                <span class="label label-default">SEXE</span> <em>bientôt</em>
+              </p>
 
-        <div ng-show="loaded && search.length > 1" class="col-lg-12">
-          <div class="panel panel-default animated" ng-class="{fadeInUp: students.length > 1, fadeOutUp: students.length < 2}">
-            <div class="panel-body">
-              <span style="margin-bottom:0px" class="lead pull-left">{{ students.length }} insaliens</span>
-              
-              <a href="mailto:{{ listEmail }}" class="btn btn-default btn-sm pull-right">email</a>
             </div>
           </div>
-        </div>
-        <div class="col-lg-6" ng-repeat="student in students">
-          <div class="panel panel-default animated fadeInUp">
+          <div class="panel panel-default no-top" ng-show="page=='Notes de version'">
             <div class="panel-body">
-              <div class="pull-left">
-                <img ng-show="student.picture != ''" height="137" class="profile" src="/bucket/{{ student.picture }}.jpg" alt="">
-                <img ng-show="student.picture == '' && student.fb_id == ''" height="137" class="profile" src="/img/default.jpg" alt="">
+              <table class="table table-condensed table-striped" name="versions" id="versions" align="center">
+                <tr>
+                  <th>Version</th>
+                  <th>Date</th>
+                  <th>Changements</th>
+                </tr>
+                <tr>
+                  <td>3.0</td>
+                  <td>10/09/2014</td>
+                  <td>
+                    Refonte du design (Bootstrap)<br/>
+                    Passage en javascript (Angular)<br/>
+                    Refonte système (Silex)<br/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2.5</td>
+                  <td>10/11/2012</td>
+                  <td>
+                    Possibilité de changer sa photo<br/>
+                    Mailling list en copie cachée<br/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2.4.1</td>
+                  <td>31/05/2012</td>
+                  <td>
+                    Corrections de bugs dans la recherche avancée<br/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2.4</td>
+                  <td>17/03/2012</td>
+                  <td>
+                    Réorganisation du moteur AJAX<br/>
+                    Meilleure compréhension des mots clés<br/>
+                    Nouveaux mots clés<br/>
+                    Couleur des liens<br/>
+                    Améliorations de la recherche avancée<br/>
+                    Recherche avec les logins<br/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2.3</td>
+                  <td>15/03/2012</td>
+                  <td>
+                    Photos par défaut<br/>
+                    Recherche avancée<br/>
+                    Recherche instantanée équivalente dans recherche avancée<br/>
+                    Amélioration des statistiques<br/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2.2.1</td>
+                  <td>29/02/2012</td>
+                  <td>
+                    Gestion des accents<br/>
+                    Correction d'un bug sur voisins<br/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2.2</td>
+                  <td>27/02/2012</td>
+                  <td>
+                    Listing d'emails</br>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2.1</td>
+                  <td>25/01/2012</td>
+                  <td>
+                    Nouvelles fonctionnalités de recherche (voisins, groupes...)</br>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2.0</td>
+                  <td>19/01/2012</td>
+                  <td>
+                    Refonte du design</br>
+                  </td>
+                </tr>
+                <tr>
+                  <td>1.1</td>
+                  <td>05/10/2011</td>
+                  <td>
+                    Recherche instantanée<br/>
+                    Génération de la mailing list<br/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>1.0</td>
+                  <td>13/09/2011</td>
+                  <td>
+                    Version initiale<br/>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+
+          <div class="panel panel-default no-top" ng-show="page=='Statistiques'">
+            <div class="panel-body">
+              <em>bientôt</em>
+            </div>
+          </div>
+          <div class="panel panel-default no-top" ng-show="page=='API'">
+            <div class="panel-body">
+              <div class="alert alert-danger">
+                L'API n'est pas définitive, des changements auront lieux dans le futur...
               </div>
-              <div class="pull-left" ng-init="full=false; name = student.first_name + ' ' + student.last_name">
-                <h3 ng-show="name.length < 22 || full">{{ name }}</h3>
-                <h3 ng-hide="name.length < 22 || full" tooltip="{{name}}">{{ name | limitTo: 20 }}<a href="" ng-click="full=true">...</a></h3>
-                <p>
-                  <span class="label label-danger">{{student.gender}}</span>
-                  <span class="label label-success"><a href="" ng-click="setSearch(student.year+student.department)">{{ student.year + student.department}}</a></span>
-                  <span class="label label-warning">{{student.room}}</span>
-                  <span class="label label-info">{{student.tags}}</span>
-                </p>
-                <p>
-                  <a href="mailto:{{ student.mail }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-envelope"></span> <small>{{ student.mail }}</small></a>
-                  <a ng-show="student.fb_id != ''" href="https://www.facebook.com/{{student.fb_id}}" class="btn btn-primary btn-xs"><small>Facebook</small></a>
-                </p>
-              </div>
+              <strong><span class="label label-info">GET</span><span class="label label-default">http://insannu.fr.cr/api.php/search/{keywords}</span></strong>
+              <pre style="font-size: 75%">
+[
+  {
+    "first_name":"PRENOM",
+    "last_name":"NOM",
+    "groupe":"GROUPE",
+    "mail":"MAIL",
+    "department":"DEPARTEMENT",
+    "year":"ANNEE",
+    "picture":"PHOTO",
+    "room":"CHAMBRE",
+    "gender":"SEXE",
+    "tags":"TAGS",
+    "fb_id":"ID FACEBOOK"
+  },
+  {
+    "first_name":"PRENOM",
+    "last_name":"NOM",
+    "groupe":"GROUPE",
+    "mail":"MAIL",
+    "department":"DEPARTEMENT",
+    "year":"ANNEE",
+    "picture":"IMAGE",
+    "room":"CHAMBRE",
+    "gender":"SEXE",
+    "tags":"TAGS",
+    "fb_id":"ID FACEBOOK"
+  },
+  ...
+]
+              </pre>
+            </div>
+          </div>
+
+          <div class="panel panel-default no-top" ng-show="page=='A propos'">
+            <div class="panel-body">
+              <p>
+                L'Insannu est un site web développé par les étudiants, pour les étudiants.
+                Il est uniquement accessible depuis le campus de l'INSA et n'a pas pour vocation d'être accessible de l'extérieur.
+              </p>
+              <p>
+                Les informations personnelles des étudiants sont récupérées régulièrement grâce à divers scripts PHP depuis l'annuaire officiel.</a><br />
+              Une base de donnée SQLite est ainsi construite, et nous utilisons PHP pour présenter ces données via un serveur Apache.<br />
+              Certaines informations (les photos mises à jour notamment) sont aussi reprises d'une année sur l'autre.<br />
+              En somme, l'Insannu n'est que l'annuaire officiel avec plus de possibilités de recherche.<br />
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div ng-show="loaded && search.length > 1" class="col-lg-12">
+        <div class="panel panel-default animated" ng-class="{fadeInUp: students.length > 1, fadeOutUp: students.length < 2}">
+          <div class="panel-body">
+            <span style="margin-bottom:0px" class="lead pull-left">{{ students.length }} insaliens</span>
+
+            <a href="mailto:{{ listEmail }}" class="btn btn-default btn-sm pull-right">email</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6" ng-repeat="student in students">
+        <div class="panel panel-default animated fadeInUp">
+          <div class="panel-body">
+            <div class="pull-left">
+              <img ng-show="student.picture != ''" height="137" class="profile" src="/bucket/{{ student.picture }}.jpg" alt="">
+              <img ng-show="student.picture == '' && student.fb_id == ''" height="137" class="profile" src="/img/default.jpg" alt="">
+            </div>
+            <div class="pull-left" ng-init="full=false; name = student.first_name + ' ' + student.last_name">
+              <h3 ng-show="name.length < 22 || full">{{ name }}</h3>
+              <h3 ng-hide="name.length < 22 || full" tooltip="{{name}}">{{ name | limitTo: 20 }}<a href="" ng-click="full=true">...</a></h3>
+              <p>
+                <span class="label label-danger">{{student.gender}}</span>
+                <span class="label label-success"><a href="" ng-click="setSearch(student.year+student.department)">{{ student.year + student.department}}</a></span>
+                <span class="label label-warning">{{student.room}}</span>
+                <span class="label label-info">{{student.tags}}</span>
+              </p>
+              <p>
+                <a href="mailto:{{ student.mail }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-envelope"></span> <small>{{ student.mail }}</small></a>
+                <a ng-show="student.fb_id != ''" href="https://www.facebook.com/{{student.fb_id}}" class="btn btn-primary btn-xs"><small>Facebook</small></a>
+              </p>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <script src="js/angular.min.js" ></script>
-    <script src="js/angular-resource.min.js" ></script>
-    <script src="js/custom.js" ></script>
-  </body>
+  </div>
+  <script src="js/angular.min.js" ></script>
+  <script src="js/angular-resource.min.js" ></script>
+  <script src="js/custom.js" ></script>
+</body>
 </html>
