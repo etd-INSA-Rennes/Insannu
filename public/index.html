@@ -36,7 +36,7 @@
           <img src="/img/loader.gif">
         </div>
 
-        <div class="col-lg-12" ng-hide="search.length > 0 && loaded">
+        <div class="col-lg-12" ng-hide="search.length > 0 || !loaded">
           <ul class="nav nav-tabs" role="tablist" ng-init="page='Catégories'">
             <li ng-repeat="pageElem in ['Catégories', 'Notes de version','Statistiques','API','A propos']" ng-class="{active: $parent.page==pageElem}">
               <a href="#" ng-click="$parent.page=pageElem">{{ pageElem }}</a></li>

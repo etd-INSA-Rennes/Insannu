@@ -28,13 +28,14 @@ class ENT {
         if (preg_match('/\/AnnuaireENT\/images\/photos\/\d+\.jpg/',$rawuser,$image)){
           $profile = $this->download_file('http://ent.insa-rennes.fr'.$image[0]);
           if ($profile !== null) {
-            $filename = md5($email);
-            $fp = fopen(__DIR__.'/../public/bucket/'.$filename.'.jpg', 'w');
-            fwrite($fp,$profile);
             $s = new Student();
             if ($s->loadByEmail($email)) {
+              $filename = $s->getStudentID().'.jpg';
+              $webpath = "http://insannu.fr.cr/bucket/".$filename;
+              $fp = fopen(__DIR__.'/../public/bucket/'.$filename, 'w');
+              fwrite($fp,$profile);
               error_log("Adding a picture for ".$s->getLastName(),0);
-              $s->setPicture($filename);
+              $s->setPicture($webpath);
               $s->save();
             } else {
               error_log("No user found for ".$s->getLastName(),0);
