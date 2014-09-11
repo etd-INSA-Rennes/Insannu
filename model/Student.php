@@ -192,7 +192,7 @@ class Student implements JsonSerializable {
       picture TEXT,
       gender TEXT,
       tags TEXT,
-      fb_id TEXT UNIQUE 
+      fb_id TEXT 
     );");
   }
 
