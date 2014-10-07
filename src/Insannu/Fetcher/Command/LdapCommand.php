@@ -19,6 +19,8 @@ class LdapCommand extends Command {
     }
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $text = "Ldap dumped";
+
         $ldap = new Ldap($this->getContainer());
         $ldap->getStudents();
 
