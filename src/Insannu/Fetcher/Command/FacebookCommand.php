@@ -9,19 +9,18 @@ use Cilex\Command\Command;
 
 use Insannu\Fetcher\Connector\Ldap;
 
-class LdapCommand extends Command {
+class FacebookCommand extends Command {
 
     protected function configure()
     {
         $this
-            ->setName('fetcher:ldap')
-            ->setDescription('Import people from LDAP');
+            ->setName('fetcher:facebook')
+            ->setDescription('Import people from Facebook');
     }
-    protected function execute(InputInterface $input, OutputInterface $output)
+     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $ldap = new Ldap($this->getContainer());
-        $ldap->getStudents();
+         $text = "hello";
 
-        $output->writeln($text); 
-    }
+         $output->writeln($text); 
+     }
 }

@@ -21,22 +21,11 @@ class Student implements \JsonSerializable {
   private $photoChanged;
   private $tags;
   private $fbId;
-  /**
-   * * Constructor
-   * * @param studentID The student's ID as defined in the LDAP server.
-   * * @param firstName The first name of the student.
-   * * @param lastName The last name of the student.
-   * * @param groupe The class of the student if he's in STPI.
-   * * @param mail The address mail.
-   * * @param department The department.
-   * * @param year The year.
-   * * @param login The login.
-   * * @param picture True if the student has a picture. Default value is false.
-   * * @param room The room or 'Externe'. Default value is ''.
-   * * @param gender The gender. Default value is ''.
-   * * @param photoChanged True if the student changed his photo. Default value is false.
-   * */
-  public function Student() {
+
+  protected $app;
+
+  public function __construct($app) {
+    $this->app = $app;
   }
   
   public function loadFromNothing($studentID, $firstName, $lastName, $groupe, $mail, $department, $year, $login, $picture = false, $room = '', $gender = '', $photoChanged = false, $tags = '', $fbId = '') {
@@ -179,10 +168,9 @@ class Student implements \JsonSerializable {
     $this->fbId = $userDB['fb_id'];
   }
 
-  public static function initDb() {
-    $app = Main::getInstance()->getApp();
-    $app['db']->executeUpdate("DROP TABLE IF EXISTS students;");
-    $app['db']->executeUpdate("CREATE TABLE students (
+  public function initDb() {
+    $this->app['db']->executeUpdate("DROP TABLE IF EXISTS students;");
+    $this->app['db']->executeUpdate("CREATE TABLE students (
       student_id INT PRIMARY KEY,
       login TEXT UNIQUE,
       first_name TEXT,
@@ -201,8 +189,7 @@ class Student implements \JsonSerializable {
 
 
   public function loadByEmail($email) {
-    $app = Main::getInstance()->getApp();
-    $req = $app['db']->executeQuery('SELECT * FROM students WHERE mail=? COLLATE NOCASE', array($email));
+    $req = $this->app['db']->executeQuery('SELECT * FROM students WHERE mail=? COLLATE NOCASE', array($email));
     $userDB = $req->fetch();
     if (count($userDB)>0) {
       $this->loadFromDB($userDB);
@@ -213,8 +200,7 @@ class Student implements \JsonSerializable {
   }
 
   public function loadByName($first_name, $last_name) {
-    $app = Main::getInstance()->getApp();
-    $req = $app['db']->executeQuery('SELECT * FROM students WHERE first_name=? AND last_name=? COLLATE NOCASE', array($first_name, $last_name));
+    $req = $this->app['db']->executeQuery('SELECT * FROM students WHERE first_name=? AND last_name=? COLLATE NOCASE', array($first_name, $last_name));
     if (count($userDB)>0) {
       $this->loadFromDB($userDB);
       return true;
@@ -225,8 +211,7 @@ class Student implements \JsonSerializable {
   }
 
   public function save() {
-    $app = Main::getInstance()->getApp();
-    $req = $app['db']->prepare('INSERT OR REPLACE INTO students VALUES (
+    $req = $this->app['db']->prepare('INSERT OR REPLACE INTO students VALUES (
       :student_id,
       :login,
       :first_name,

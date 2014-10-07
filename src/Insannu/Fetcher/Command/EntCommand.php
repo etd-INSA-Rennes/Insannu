@@ -9,19 +9,18 @@ use Cilex\Command\Command;
 
 use Insannu\Fetcher\Connector\Ldap;
 
-class LdapCommand extends Command {
+class EntCommand extends Command {
 
     protected function configure()
     {
         $this
-            ->setName('fetcher:ldap')
-            ->setDescription('Import people from LDAP');
+            ->setName('fetcher:ent')
+            ->setDescription('Import people from Ent');
     }
-    protected function execute(InputInterface $input, OutputInterface $output)
-    {
-        $ldap = new Ldap($this->getContainer());
-        $ldap->getStudents();
+     protected function execute(InputInterface $input, OutputInterface $output)
+     {
+         $text = "hello";
 
-        $output->writeln($text); 
-    }
+         $output->writeln($text); 
+     }
 }
