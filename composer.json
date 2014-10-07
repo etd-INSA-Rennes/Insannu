@@ -1,7 +1,12 @@
 {
-  "require": {
-    "silex/silex": "~1.2",
-    "doctrine/dbal": "~2.3.4"
-  }
+    "require": {
+        "silex/silex": "~1.2",
+        "doctrine/dbal": "~2.3.4",
+        "cilex/cilex": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "Insannu": "src/"
+        }
+    }
 }
-

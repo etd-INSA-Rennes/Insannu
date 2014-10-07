@@ -1,5 +1,9 @@
 <?php
 
+namespace Insannu\Fetcher\Connector;
+
+use Insanny\Api\Model\Student;
+
 /**
  * Retrieves information from the LDAP server.
  * This class follows a Singleton pattern.
@@ -8,7 +12,7 @@
  */
 
 require_once('../model/Student.php');
-class LDAP {
+class Ldap {
   const SERVER = 'ldap.insa-rennes.fr';
   const PORT = 389;
   const DN = 'ou=people,dc=insa-rennes,dc=fr';

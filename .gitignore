@@ -1,4 +1,6 @@
 vendor
 .git
 app.db
+*.old
 public/bucket/*
+raw/

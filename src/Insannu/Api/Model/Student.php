@@ -1,9 +1,12 @@
 <?php
+
+namespace Insannu\Api\Model;
+
 /**
  * * The Student class to store information about a student.
  * * @author Paul Chaignon <paul.chaignon@gmail.com>
  * */
-class Student implements JsonSerializable {
+class Student implements \JsonSerializable {
   private $firstName;
   private $lastName;
   private $studentID;

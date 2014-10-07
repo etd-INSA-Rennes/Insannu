@@ -1,4 +1,9 @@
 <?php
+
+namespace Insannu\Fetcher\Connector;
+
+use Insanny\Api\Model\Student;
+
 class Facebook {  
 
   private static $instance;

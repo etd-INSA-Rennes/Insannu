@@ -1,5 +1,10 @@
 <?php
-class ENT {
+
+namespace Insannu\Fetcher\Connector;
+
+use Insanny\Api\Model\Student;
+
+class Ent {
 
   private static $instance;
 
