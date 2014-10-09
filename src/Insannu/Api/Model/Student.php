@@ -199,6 +199,17 @@ class Student implements \JsonSerializable {
     }
   }
 
+  public function loadById($id) {
+    $req = $this->app['db']->executeQuery('SELECT * FROM students WHERE student_id=?', array($id));
+    $userDB = $req->fetch();
+    if ($userDB != false && count($userDB)>0) {
+      $this->loadFromDB($userDB);
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   public function loadByName($first_name, $last_name) {
     $req = $this->app['db']->executeQuery('SELECT * FROM students WHERE first_name=? AND last_name=? COLLATE NOCASE', array($first_name, $last_name));
     if (count($userDB)>0) {

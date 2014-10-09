@@ -258,7 +258,7 @@
         <div class="panel panel-default animated fadeInUp">
           <div class="panel-body">
             <div class="pull-left">
-              <img ng-show="student.picture != ''" height="137" class="profile" src="/bucket/{{ student.picture }}.jpg" alt="">
+              <img ng-show="student.picture != ''" height="137" class="profile" src="{{ student.picture }}" alt="">
               <img ng-show="student.picture == '' && student.fb_id == ''" height="137" class="profile" src="/img/default.jpg" alt="">
             </div>
             <div class="pull-left" ng-init="full=false; name = student.first_name + ' ' + student.last_name">

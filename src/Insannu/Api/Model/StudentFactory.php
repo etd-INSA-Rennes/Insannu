@@ -54,7 +54,7 @@ class StudentFactory {
             }
         }
 
-        $sql .= "COLLATE NOCASE";
+        $sql .= "COLLATE NOCASE ORDER BY last_name ASC";
 
         $req = $this->app['db']->executeQuery($sql, $params);
         $this->loadFromDB($req->fetchAll());

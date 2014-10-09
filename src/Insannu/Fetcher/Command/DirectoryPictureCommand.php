@@ -7,20 +7,21 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Cilex\Command\Command;
 
-use Insannu\Fetcher\Connector\Ldap;
+use Insannu\Fetcher\Connector\Ent;
 
-class EntCommand extends Command {
+class DirectoryPictureCommand extends Command {
 
     protected function configure()
     {
         $this
-            ->setName('fetcher:ent')
+            ->setName('fetcher:picture:directory')
             ->setDescription('Import people from Ent');
     }
-     protected function execute(InputInterface $input, OutputInterface $output)
-     {
-         $text = "hello";
-
-         $output->writeln($text); 
-     }
+    protected function execute(InputInterface $input, OutputInterface $output)
+    {
+        $text = 'Ent dumped';
+        $ent = new Ent($this->getContainer());
+        $ent->parseFile();
+        $output->writeln($text); 
+    }
 }
