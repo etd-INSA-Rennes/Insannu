@@ -5,3 +5,4 @@ vendor
 *.db-journal
 public/bucket/*
 raw/
+scripts/
