@@ -62,7 +62,7 @@ class StudentFactory {
 
     private function loadFromDB($pl) {
         foreach ($pl as $u) {
-            $s = new Student();
+            $s = new Student($this->app);
             $s->loadFromDB($u);
             $this->list[] = $s;
         }
