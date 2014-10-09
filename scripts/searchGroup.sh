@@ -1,3 +1,0 @@
-#!/bin/bash
-curl "https://graph.facebook.com/search?access_token=CAAGr9XBQYaYBACoWvwtk9NUPRoC7GiEZCvAwM6mCC4WlkGLD85zuDDvxr7BMFFfbu1bnANZAc0wSkHeB9hnMQULnZBNgUNA1LEy2DXfnzAHkmfPVIAqgBFnFncK07ZC55EcAJNfrjlg7NrY3LW7YDVgP6X1nxHA6ZABsFKbATn2S1HDOrI80VQPVmT5WHyodHcm9WpPoAsKL3raay10yr&q=Entraide%20INSA&type=group"
-
