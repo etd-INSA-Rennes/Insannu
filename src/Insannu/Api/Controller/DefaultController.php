@@ -25,11 +25,11 @@ class DefaultController implements ControllerProviderInterface
 
     protected function searchAction() {
 
-        $this->controllers->get('/search', function (Application $app) {
+        $this->controllers->get('/api/search', function (Application $app) {
             return "[]";
         });
 
-        $this->controllers->get('/search/{keywords}', function (Application $app, $keywords) {   
+        $this->controllers->get('/api/search/{keywords}', function (Application $app, $keywords) {   
             if (strlen($keywords)>2) {
                 $sf = new StudentFactory($app); 
                 $sf->search($keywords);

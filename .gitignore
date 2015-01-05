@@ -3,6 +3,6 @@ vendor
 *.db
 *.old
 *.db-journal
-public/bucket/*
-raw/
+public/bucket/*.jpg
+raw/legacy-pictures/*.jpg
 scripts/

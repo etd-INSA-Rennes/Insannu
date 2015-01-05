@@ -1,6 +1,6 @@
 angular.module('insannu', ['ngResource'])
   .controller('SearchController', ['$scope', '$resource', function($scope, $resource) {
-    var StudentsFactory = $resource('/api.php/search/:search');
+    var StudentsFactory = $resource('/api/search/:search');
     $scope.loaded = false;
 
     $scope.$watch('search', function() {
