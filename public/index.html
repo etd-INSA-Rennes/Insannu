@@ -38,9 +38,37 @@
 
         <div class="col-lg-12" ng-hide="search.length > 0 || !loaded">
           <ul class="nav nav-tabs" role="tablist" ng-init="page='Catégories'">
-            <li ng-repeat="pageElem in ['Catégories', 'Notes de version','Statistiques','API','A propos']" ng-class="{active: $parent.page==pageElem}">
+            <li ng-repeat="pageElem in ['Mon profil', 'Catégories', 'Notes de version','Statistiques','API','A propos']" ng-class="{active: $parent.page==pageElem}">
               <a href="#" ng-click="$parent.page=pageElem">{{ pageElem }}</a></li>
           </ul>
+          <div class="panel panel-default no-top" ng-show="page=='Mon profil'">
+            <div class="connection">
+                <br>
+                <h2 class="text-center">Qui êtes-vous ?</h2>
+                <p class="text-center">
+                    <em ng-hide="true">Votre mot de passe vous a été envoyé par email</em>
+                </p>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-sm-6 col-sm-offset-3">
+                            <input type="email" class="form-control" id="inputEmail" disabled value="quentin@dufour.tk" placeholder="Votre email INSA version longue">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-6 col-sm-offset-3">
+                            <input type="password" class="form-control" id="inputPassword" placeholder="Votre mot de passe">
+                        </div>
+                    </div>
+                </form>
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <button class="btn btn-default pull-right no-bottom shift-left">Suivant</button>
+                        <button class="btn btn-default pull-right no-bottom shift-left">Changer d'adresse</button>
+                    </div>
+                </div>
+            </div>
+
+          </div>
 
           <div class="panel panel-default no-top" ng-show="page=='Catégories'">
             <div class="panel-body">
@@ -226,59 +254,59 @@
   ...
 ]
               </pre>
-            </div>
           </div>
+      </div>
 
-          <div class="panel panel-default no-top" ng-show="page=='A propos'">
-            <div class="panel-body">
+      <div class="panel panel-default no-top" ng-show="page=='A propos'">
+          <div class="panel-body">
               <p>
-                L'Insannu est un site web développé par les étudiants, pour les étudiants.
-                Il est uniquement accessible depuis le campus de l'INSA et n'a pas pour vocation d'être accessible de l'extérieur.
+                  L'Insannu est un site web développé par les étudiants, pour les étudiants.
+                  Il est uniquement accessible depuis le campus de l'INSA et n'a pas pour vocation d'être accessible de l'extérieur.
               </p>
               <p>
-                Les informations personnelles des étudiants sont récupérées régulièrement grâce à divers scripts PHP depuis l'annuaire officiel.</a><br />
+                  Les informations personnelles des étudiants sont récupérées régulièrement grâce à divers scripts PHP depuis l'annuaire officiel.</a><br />
               Une base de donnée SQLite est ainsi construite, et nous utilisons PHP pour présenter ces données via un serveur nginx.<br />
               Certaines informations (les photos mises à jour notamment) sont aussi reprises d'une année sur l'autre.<br />
               En somme, l'Insannu n'est que l'annuaire officiel avec plus de possibilités de recherche.<br />
-            </p>
-          </div>
-        </div>
+          </p>
+      </div>
+  </div>
       </div>
 
       <div ng-show="loaded && search.length > 1" class="col-lg-12">
-        <div class="panel panel-default animated" ng-class="{fadeInUp: students.length > 1, fadeOutUp: students.length < 2}">
-          <div class="panel-body">
-            <span style="margin-bottom:0px" class="lead pull-left">{{ students.length }} insaliens</span>
+          <div class="panel panel-default animated" ng-class="{fadeInUp: students.length > 1, fadeOutUp: students.length < 2}">
+              <div class="panel-body">
+                  <span style="margin-bottom:0px" class="lead pull-left">{{ students.length }} insaliens</span>
 
-            <a href="mailto:{{ listEmail }}" class="btn btn-default btn-sm pull-right">email</a>
+                  <a href="mailto:{{ listEmail }}" class="btn btn-default btn-sm pull-right">email</a>
+              </div>
           </div>
-        </div>
       </div>
       <div class="col-lg-6" ng-repeat="student in students">
-        <div class="panel panel-default animated fadeInUp">
-          <div class="panel-body">
-            <div class="pull-left">
-              <img ng-show="student.picture != ''" height="137" class="profile" src="{{ student.picture }}" alt="">
-              <img ng-show="student.picture == '' && student.fb_id == ''" height="137" class="profile" src="/img/default.jpg" alt="">
-            </div>
-            <div class="pull-left" ng-init="full=false; name = student.first_name + ' ' + student.last_name">
-              <h3 ng-show="name.length < 22 || full">{{ name }}</h3>
-              <h3 ng-hide="name.length < 22 || full" tooltip="{{name}}">{{ name | limitTo: 20 }}<a href="" ng-click="full=true">...</a></h3>
-              <p>
-                <span class="label label-danger">{{student.gender}}</span>
-                <span class="label label-success"><a href="" ng-click="setSearch(student.year+student.department)">{{ student.year + student.department}}</a></span>
-                <span class="label label-warning">{{student.room}}</span>
-                <span class="label label-info">{{student.tags}}</span>
-              </p>
-              <p>
-                <a href="mailto:{{ student.mail }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-envelope"></span> <small>{{ student.mail }}</small></a>
-                <a ng-show="student.fb_id != ''" href="https://www.facebook.com/{{student.fb_id}}" class="btn btn-primary btn-xs"><small>Facebook</small></a>
-              </p>
-            </div>
+          <div class="panel panel-default animated fadeInUp">
+              <div class="panel-body">
+                  <div class="pull-left">
+                      <img ng-show="student.picture != ''" height="137" class="profile" src="{{ student.picture }}" alt="">
+                      <img ng-show="student.picture == '' && student.fb_id == ''" height="137" class="profile" src="/img/default.jpg" alt="">
+                  </div>
+                  <div class="pull-left" ng-init="full=false; name = student.first_name + ' ' + student.last_name">
+                      <h3 ng-show="name.length < 22 || full">{{ name }}</h3>
+                      <h3 ng-hide="name.length < 22 || full" tooltip="{{name}}">{{ name | limitTo: 20 }}<a href="" ng-click="full=true">...</a></h3>
+                      <p>
+                          <span class="label label-danger">{{student.gender}}</span>
+                          <span class="label label-success"><a href="" ng-click="setSearch(student.year+student.department)">{{ student.year + student.department}}</a></span>
+                          <span class="label label-warning">{{student.room}}</span>
+                          <span class="label label-info">{{student.tags}}</span>
+                      </p>
+                      <p>
+                          <a href="mailto:{{ student.mail }}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-envelope"></span> <small>{{ student.mail }}</small></a>
+                          <a ng-show="student.fb_id != ''" href="https://www.facebook.com/{{student.fb_id}}" class="btn btn-primary btn-xs"><small>Facebook</small></a>
+                      </p>
+                  </div>
+              </div>
           </div>
-        </div>
       </div>
-    </div>
+  </div>
   </div>
   <script src="js/angular.min.js" ></script>
   <script src="js/angular-resource.min.js" ></script>

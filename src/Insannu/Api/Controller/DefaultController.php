@@ -5,6 +5,7 @@ use Silex\Application;
 use Silex\ControllerProviderInterface;
 
 use Insannu\Api\Model\StudentFactory;
+use Insannu\Api\Model\Student;
 
 class DefaultController implements ControllerProviderInterface
 {
@@ -37,6 +38,12 @@ class DefaultController implements ControllerProviderInterface
             } else {
                 return "[]";
             }
+
+        });
+    }
+
+    protected function userAction() {
+        $this->controllers->get('/user/check/{email}', function (Application $app, $email) {
 
         });
     }

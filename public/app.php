@@ -1,4 +1,10 @@
 <?php
+if (php_sapi_name() == 'cli-server') {
+    if($_SERVER["REQUEST_URI"] === '/' || preg_match('/\.(?:png|jpg|jpeg|gif|css|js)$/', $_SERVER["REQUEST_URI"])) {
+        return false;
+    }
+}
+
 require_once __DIR__.'/../vendor/autoload.php'; 
 
 $app = new Silex\Application(); 

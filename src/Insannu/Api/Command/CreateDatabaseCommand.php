@@ -8,6 +8,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Cilex\Command\Command;
 
 use Insannu\Api\Model\Student;
+use Insannu\Api\Model\User;
 
 class CreateDatabaseCommand extends Command {
 
@@ -21,8 +22,13 @@ class CreateDatabaseCommand extends Command {
      {
          $s = new Student($this->getContainer());
          $s->initDb();
+
+         $u = new User($this->getContainer());
+         $u->initDb();
+
          $text = "Database created";
 
          $output->writeln($text); 
      }
 }
+
