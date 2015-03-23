@@ -1,6 +1,8 @@
-www/photos/
-www/photos_uploaded/
-*.jpg
-PHPMailer/
+vendor
+.git
 *.db
-data/
+*.old
+*.db-journal
+public/bucket/*.jpg
+raw/legacy-pictures/*.jpg
+scripts/

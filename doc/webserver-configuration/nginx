@@ -1,0 +1,25 @@
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server ipv6only=on;
+        root /srv/Insannu/public;
+        index index.html;
+        server_name _;
+
+        #error_page 404 /index.html;
+        #error_page 500 502 503 504 /index.html;
+
+	location /api/ {
+        	try_files @site @site;
+    	}
+
+    	location ~ \.php$ {
+        	return 404;
+    	}
+
+        location @site {
+               fastcgi_pass unix:/var/run/php5-fpm.sock;
+               include fastcgi_params;
+	       fastcgi_param  SCRIPT_FILENAME $document_root/app.php;
+        }
+}
+
